@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -288,39 +290,39 @@
 
                             <div>
                                <div id="map" style="width:110%;height:700px;"></div>
-<p><em>지도를 클릭해주세요!</em></p> 
+<p><em>ì§ëë¥¼ í´ë¦­í´ì£¼ì¸ì!</em></p> 
 <div id="clickLatlng"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=048d3839f2032025c0d6225330618498"></script>
 <script>
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+var mapContainer = document.getElementById('map'), // ì§ëë¥¼ íìí  div 
     mapOption = { 
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // ì§ëì ì¤ì¬ì¢í
+        level: 3 // ì§ëì íë ë ë²¨
     };
 
-var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+var map = new kakao.maps.Map(mapContainer, mapOption); // ì§ëë¥¼ ìì±í©ëë¤
 
-// 지도를 클릭한 위치에 표출할 마커입니다
+// ì§ëë¥¼ í´ë¦­í ìì¹ì íì¶í  ë§ì»¤ìëë¤
 var marker = new kakao.maps.Marker({ 
-    // 지도 중심좌표에 마커를 생성합니다 
+    // ì§ë ì¤ì¬ì¢íì ë§ì»¤ë¥¼ ìì±í©ëë¤ 
     position: map.getCenter() 
 }); 
-// 지도에 마커를 표시합니다
+// ì§ëì ë§ì»¤ë¥¼ íìí©ëë¤
 marker.setMap(map);
 
-// 지도에 클릭 이벤트를 등록합니다
-// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+// ì§ëì í´ë¦­ ì´ë²¤í¸ë¥¼ ë±ë¡í©ëë¤
+// ì§ëë¥¼ í´ë¦­íë©´ ë§ì§ë§ íë¼ë¯¸í°ë¡ ëì´ì¨ í¨ìë¥¼ í¸ì¶í©ëë¤
 kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
     
-    // 클릭한 위도, 경도 정보를 가져옵니다 
+    // í´ë¦­í ìë, ê²½ë ì ë³´ë¥¼ ê°ì ¸ìµëë¤ 
     var latlng = mouseEvent.latLng; 
     
-    // 마커 위치를 클릭한 위치로 옮깁니다
+    // ë§ì»¤ ìì¹ë¥¼ í´ë¦­í ìì¹ë¡ ì®ê¹ëë¤
     marker.setPosition(latlng);
     
-    var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
-    message += '경도는 ' + latlng.getLng() + ' 입니다';
+    var message = 'í´ë¦­í ìì¹ì ìëë ' + latlng.getLat() + ' ì´ê³ , ';
+    message += 'ê²½ëë ' + latlng.getLng() + ' ìëë¤';
     
     var resultDiv = document.getElementById('clickLatlng'); 
     resultDiv.innerHTML = message;
