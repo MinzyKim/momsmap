@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sufee Admin - HTML5 Admin Template</title>
+    <title>엄마의지도</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -47,31 +47,34 @@
                 <div class="login-form">
                     <form>
                         <div class="form-group">
-                            <label>User Name</label>
-                            <input type="email" class="form-control" placeholder="User Name">
+                            <label>이름</label>
+                            <input type="text" class="form-control" placeholder="Name">
                         </div>
                             <div class="form-group">
-                                <label>Email address</label>
-                                <input type="email" class="form-control" placeholder="Email">
+                                <label>아이디</label>
+                                <input type="text" class="form-control" placeholder="ID">
                         </div>
                                 <div class="form-group">
-                                    <label>Password</label>
+                                    <label>비밀번호</label>
                                     <input type="password" class="form-control" placeholder="Password">
+                        </div>
+                         <div class="form-group">
+                                    <label>이메일</label>
+                                    <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                         <div class="form-group">
+                                    <label>사는 지역</label>
+                                    <input type="checkbox" class="form-control">
                         </div>
                                     <div class="checkbox">
                                         <label>
-                                <input type="checkbox"> Agree the terms and policy
+                                <input type="checkbox"> 약관 동의
                             </label>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
-                                    <div class="social-login-content">
-                                        <div class="social-button">
-                                            <button type="button" class="btn social facebook btn-flat btn-addon mb-3"><i class="ti-facebook"></i>Register with facebook</button>
-                                            <button type="button" class="btn social twitter btn-flat btn-addon mt-2"><i class="ti-twitter"></i>Register with twitter</button>
-                                        </div>
-                                    </div>
+                                 
                                     <div class="register-link m-t-15 text-center">
-                                        <p>Already have account ? <a href="#"> Sign in</a></p>
+                                        <p>이미 아이디가 있나요?<a href="page-login.jsp">&nbsp&nbsp로그인</a></p>
                                     </div>
                     </form>
                 </div>

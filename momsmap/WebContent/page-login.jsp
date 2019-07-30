@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sufee Admin - HTML5 Admin Template</title>
+    <title>엄마의지도</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -47,24 +47,19 @@
                 <div class="login-form">
                     <form>
                         <div class="form-group">
-                            <label>Email address</label>
-                            <input type="email" class="form-control" placeholder="Email">
+                            <label>아이디</label>
+                            <input type="text" class="form-control" placeholder="ID">
                         </div>
                             <div class="form-group">
-                                <label>Password</label>
+                                <label>비밀번호</label>
                                 <input type="password" class="form-control" placeholder="Password">
                         </div>
                                 <div class="checkbox">
                                 </div>
                                 <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
-                                <div class="social-login-content">
-                                    <div class="social-button">
-                                        <button type="button" class="btn social facebook btn-flat btn-addon mb-3"><i class="ti-facebook"></i>Sign in with facebook</button>
-                                        <button type="button" class="btn social twitter btn-flat btn-addon mt-2"><i class="ti-twitter"></i>Sign in with twitter</button>
-                                    </div>
-                                </div>
+                               
                                 <div class="register-link m-t-15 text-center">
-                                    <p>Don't have account ? <a href="#"> Sign Up Here</a></p>
+                                    <p>아이디가 없으신가요?<a href="page-register.jsp">&nbsp&nbsp회원가입</a></p>
                                 </div>
                     </form>
                 </div>

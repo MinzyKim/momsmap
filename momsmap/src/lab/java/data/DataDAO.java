@@ -11,18 +11,19 @@ import java.util.Properties;
 public class DataDAO {
 	Connection con = null;
 	Properties prop = new Properties();
-	Statement stat=null;
+	Statement stat = null;
 	PreparedStatement pstat = null;
 	ResultSet rs;
-	public Connection dbCon() {	
-		
+
+	public Connection dbCon() {
+
 		try {
-			prop.load(new FileInputStream("C:/Users/±è¹ÎÁö/eclipse-workspace/momsmap/dbinfo.properties"));
+			prop.load(new FileInputStream("C:/Users/±è¹ÎÁö/momsmap/momsmap/dbinfo.properties"));
 			Class.forName(prop.getProperty("driver"));
-			con=DriverManager.getConnection(
-			prop.getProperty("url"),
-			prop.getProperty("user"),
-			prop.getProperty("pwd"));
+			System.out.println("driver load");
+			con = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("user"),
+					prop.getProperty("pwd"));
+			System.out.println("db connect¼º°ø");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -41,35 +42,73 @@ public class DataDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	public int insertSafety(String[] safetyInfo) {
-		
+
+	public int insertPractice(SanitaryVO vo) {
+
 		int rsint = 0;
-		String sql = "insert into safety values(safety_seq.nextval, null, null, ?, null, ?, null, ?, null, ?, null, ?, null, ?, null, null, ?, ?,?,? )";
+		String sql = "insert into practice values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 		try {
+			con = dbCon();
 			pstat = con.prepareStatement(sql);
-			
-			pstat.setString(1, safetyInfo[0]);
-			pstat.setString(2, safetyInfo[1]);
-			pstat.setString(3, safetyInfo[2]);
-			pstat.setString(4, safetyInfo[3]);
-			pstat.setString(5, safetyInfo[4]);
-			pstat.setString(6, safetyInfo[5]);
-			pstat.setString(7, safetyInfo[6]);
-			pstat.setInt(8, Integer.parseInt(safetyInfo[7]));
-			pstat.setInt(9, Integer.parseInt(safetyInfo[8]));
-			pstat.setInt(10, Integer.parseInt(safetyInfo[9]));
+
+			pstat.setString(1, vo.getKey());
+			pstat.setString(2, vo.getOfficeedu());
+			pstat.setString(3, vo.getSubofficeedu());
+			pstat.setString(4, vo.getKindername());
+			pstat.setString(5, vo.getEstablish());
+			pstat.setString(6, vo.getMas_mspl_dclr_yn());
+			pstat.setString(7, vo.getCons_ents_nm());
+			pstat.setString(8, vo.getAl_kpcntnul());
+			pstat.setString(9, vo.getMlsr_kpcnt());
+			pstat.setString(10, vo.getNtrt_tchr_agmt_yn());
+			pstat.setString(11, vo.getSnge_agmt_ntrt_thcnt());
+			pstat.setString(12, vo.getCprt_agmt_ntrt_thcnt());
+			pstat.setString(13, vo.getCkcnt());
+			pstat.setString(14, vo.getCmcnt());
+			pstat.setString(15, vo.getMas_mspl_dclr_yn());
+			pstat.setString(16, vo.getPage());
 			rsint = pstat.executeUpdate();
-			if(rsint > 0) {
+			if (rsint > 0) {
 				return 1;
 			}
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			dbClose(con, pstat, rs);
 		}
+
+		return 0;
+	}
+	
+	public int insertBuilding(BuildingVO vo) {
+		int rsint = 0;
+		String sql = "insert into establishment values(null, ?, ?, ?, null, ?, ?, ?, ?, ?, ?, null, null, null, null,null,"
+				+ "null,null,null,null,null, null, null, null, null, null, null, null, null, null)";
+		try {
+			con = dbCon();
+			pstat = con.prepareStatement(sql);
+			
+		  
+			pstat.setString(1, vo.getKey());
+			pstat.setString(2, vo.getOfficeedu());
+			pstat.setString(3, vo.getSubofficeedu());
+			pstat.setString(4, vo.getKindername());
+			pstat.setString(5, vo.getEstablish());
+			pstat.setString(6, vo.getArchyy());
+			pstat.setString(7, vo.getFloorcnt());
+			pstat.setString(8, vo.getBldgprusarea());
+			pstat.setString(9, vo.getGrottar());
 		
+			rsint = pstat.executeUpdate();
+			if (rsint > 0) {
+				return 1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbClose(con, pstat, rs);
+		}
+
 		return 0;
 	}
 }
