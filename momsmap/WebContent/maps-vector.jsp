@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -23,6 +25,7 @@
     <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="vendors/selectFX/css/cs-skin-elastic.css">
 
+    <link rel="stylesheet" href="vendors/jqvmap/dist/jqvmap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
@@ -45,14 +48,13 @@
                 <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
             </div>
 
-            <div <i class="ti-email"></i>
-                                <span class="count bg-primary">9</span>id="main-menu" class="main-menu collapse navbar-collapse">
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
                         <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
-                    <li class="menu-item-has-children active dropdown">
+                    <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Components</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
@@ -104,7 +106,7 @@
                         </ul>
                     </li>
 
-                    <li class="menu-item-has-children dropdown">
+                    <li class="menu-item-has-children active dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Maps</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-map-o"></i><a href="maps-gmap.html">Google Maps</a></li>
@@ -271,8 +273,8 @@
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="#">Dashboard</a></li>
-                            <li><a href="#">UI Elements</a></li>
-                            <li class="active">Progressbar</li>
+                            <li><a href="#">Map</a></li>
+                            <li class="active">Vector map</li>
                         </ol>
                     </div>
                 </div>
@@ -281,146 +283,65 @@
 
         <div class="content mt-3">
             <div class="animated fadeIn">
+
                 <div class="row">
-
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-header">
-                                <h4>Basic Progress Bar</h4>
-                            </div>
-                            <div class="card-body">
-                                <p class="muted">To create a default progress bar, add a <code>.progress</code> class to a <code>&lt;div&gt;</code> element:</p>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /# card -->
 
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Labels</h4>
-                            </div>
-                            <div class="card-body">
-                                <p class="muted">To create a default progress bar, add a <code>.progress</code> class to a <code>&lt;div&gt;</code> element:</p>
-                                <div class="progress mb-2">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                </div>
-                                <div class="progress mb-2">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
-                                </div>
-                                <div class="progress mb-2">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
-                                </div>
-                                <div class="progress mb-2">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /# card -->
+                            <div>
+                               <div id="map" style="width:110%;height:700px;"></div>
+<p><em>ì§ëë¥¼ í´ë¦­í´ì£¼ì¸ì!</em></p> 
+<div id="clickLatlng"></div>
 
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Striped</h4>
-                            </div>
-                            <div class="card-body">
-                                <p class="muted">To create a default progress bar, add a <code>.progress-bar-striped</code> class to a <code>&lt;div&gt;</code> element:</p>
-                                <div class="progress mb-2">
-                                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                </div>
-                                <div class="progress mb-2">
-                                    <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="progress mb-2">
-                                    <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="progress mb-2">
-                                    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=048d3839f2032025c0d6225330618498"></script>
+<script>
+var mapContainer = document.getElementById('map'), // ì§ëë¥¼ íìí  div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // ì§ëì ì¤ì¬ì¢í
+        level: 3 // ì§ëì íë ë ë²¨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // ì§ëë¥¼ ìì±í©ëë¤
+
+// ì§ëë¥¼ í´ë¦­í ìì¹ì íì¶í  ë§ì»¤ìëë¤
+var marker = new kakao.maps.Marker({ 
+    // ì§ë ì¤ì¬ì¢íì ë§ì»¤ë¥¼ ìì±í©ëë¤ 
+    position: map.getCenter() 
+}); 
+// ì§ëì ë§ì»¤ë¥¼ íìí©ëë¤
+marker.setMap(map);
+
+// ì§ëì í´ë¦­ ì´ë²¤í¸ë¥¼ ë±ë¡í©ëë¤
+// ì§ëë¥¼ í´ë¦­íë©´ ë§ì§ë§ íë¼ë¯¸í°ë¡ ëì´ì¨ í¨ìë¥¼ í¸ì¶í©ëë¤
+kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+    
+    // í´ë¦­í ìë, ê²½ë ì ë³´ë¥¼ ê°ì ¸ìµëë¤ 
+    var latlng = mouseEvent.latLng; 
+    
+    // ë§ì»¤ ìì¹ë¥¼ í´ë¦­í ìì¹ë¡ ì®ê¹ëë¤
+    marker.setPosition(latlng);
+    
+    var message = 'í´ë¦­í ìì¹ì ìëë ' + latlng.getLat() + ' ì´ê³ , ';
+    message += 'ê²½ëë ' + latlng.getLng() + ' ìëë¤';
+    
+    var resultDiv = document.getElementById('clickLatlng'); 
+    resultDiv.innerHTML = message;
+    
+});
+</script>
                             </div>
                         </div>
                         <!-- /# card -->
                     </div>
+                    <!-- /# column -->
+
+                  
 
 
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Animated Progress Bar</h4>
-                            </div>
-                            <div class="card-body">
-                                <p class="muted">To create a default progress bar, add a <code>.progress-bar-striped and .progress-bar-animated</code> class to a <code>&lt;div&gt;</code> element:</p>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /# card -->
+                </div>
+                <!-- /# row -->
 
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Animated Labels</h4>
-                            </div>
-                            <div class="card-body">
-                                <p class="muted">To create a default progress bar, add a <code>.progress-bar-striped and .progress-bar-animated</code> class to a <code>&lt;div&gt;</code> element:</p>
-                                <div class="progress mb-2">
-                                    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                </div>
-                                <div class="progress mb-2">
-                                    <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
-                                </div>
-                                <div class="progress mb-2">
-                                    <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
-                                </div>
-                                <div class="progress mb-2">
-                                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /# card -->
 
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Heights</h4>
-                            </div>
-                            <div class="card-body">
-                                <p class="muted">To create a height progress bar, add a <code>.progress-bar</code> class to a <code>&lt;div&gt;</code> element:</p>
-                                <div class="progress mb-2" style="height: 5px;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="progress mb-2" style="height: 5px;">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="progress mb-2" style="height: 5px;">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="progress mb-2" style="height: 5px;">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div> <!-- .row -->
             </div><!-- .animated -->
         </div><!-- .content -->
 
@@ -434,6 +355,44 @@
     <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+
+    <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- scripit init-->
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <!-- scripit init-->
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.algeria.js"></script>
+    <!-- scripit init-->
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.argentina.js"></script>
+    <!-- scripit init-->
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.brazil.js"></script>
+    <!-- scripit init-->
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.france.js"></script>
+    <!-- scripit init-->
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.germany.js"></script>
+    <!-- scripit init-->
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.greece.js"></script>
+    <!-- scripit init-->
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.iran.js"></script>
+    <!-- scripit init-->
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.iraq.js"></script>
+    <!-- scripit init-->
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.russia.js"></script>
+    <!-- scripit init-->
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.tunisia.js"></script>
+    <!-- scripit init-->
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.europe.js"></script>
+    <!-- scripit init-->
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.usa.js"></script>
+    <!-- scripit init-->
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.turkey.js"></script>
+    <!-- scripit init-->
+    <script src="assets/js/init-scripts/vector-map/vector.init.js"></script>
+
+
+
+
 
 
 </body>
