@@ -115,7 +115,7 @@ public class DataDAO {
 	
 	public int insertKinderInfo(KinderInfoVO vo) {
 		int rsint = 0;
-		String sql = "insert into kinderinfo values(concat('GN', to_char(kinder_seq.nextval, '009')),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into kinderinfo values('GN'||to_char(kinder_seq.nextval,'FM009'),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try {
 			con = dbCon();
 			pstat = con.prepareStatement(sql);

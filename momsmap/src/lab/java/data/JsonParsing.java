@@ -26,7 +26,6 @@ package lab.java.data;
 			int DBresult=0;
 			
 			String[] practiceAttribute = {
-					"kinderinfoId",
 					"officeedu",
 					"subofficeedu",
 					"kindername",
