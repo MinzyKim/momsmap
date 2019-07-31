@@ -1,6 +1,6 @@
 package lab.java.data;
 
-public class SanitaryVO {
+public class MealVO {
 	private String key;
 	private String officeedu;
 	private String  subofficeedu;
@@ -18,7 +18,7 @@ public class SanitaryVO {
 	private String mas_mspl_dclr_yn;
 	private String page;
 	
-	public SanitaryVO() {
+	public MealVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

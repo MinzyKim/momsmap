@@ -19,53 +19,89 @@ package lab.java.data;
 
 	public class JsonParsing {
 
-	public static void main(String[] args) throws org.json.simple.parser.ParseException {
-		JSONParser parser = new JSONParser();
-		DataDAO dao = new DataDAO();
-
-		int DBresult = 0;
-
-		String[] practiceAttribute = { "key", "officeedu", "subofficeedu", "kindername", "establish",
-				"archyy","floorcnt","bldgprusarea","grottar"};
-
-		// String[] result = new String[practiceAttribute.length];
-		BuildingVO vo = new BuildingVO();
-
-		try {
-
-			JSONObject obj = (JSONObject) parser.parse(new FileReader("C:/Users/김민지/momsmap/momsmap/meal.json"));
-
-			// JSONObject dataBody = (JSONObject) parser.parse(obj.get("kinderInfo"));
-			// Object로 불러올 때
-			JSONArray bodyArray = (JSONArray) obj.get("kinderInfo"); // JsonArray로 불러 올 때
-			System.out.println(bodyArray.size());
-			for (int i = 0; i < bodyArray.size(); i++) {
-
-				for (int j = 0; j < practiceAttribute.length; j++) {
-
-					JSONObject row = (JSONObject) bodyArray.get(i);
-					vo.setKey((String) row.get(practiceAttribute[0]));
-					vo.setOfficeedu((String) row.get(practiceAttribute[1]));
-					vo.setSubofficeedu((String) row.get(practiceAttribute[2]));
-					vo.setKindername((String) row.get(practiceAttribute[3]));
-					vo.setEstablish((String) row.get(practiceAttribute[4]));
-					vo.setArchyy((String) row.get(practiceAttribute[5]));
-					vo.setFloorcnt((String) row.get(practiceAttribute[6]));
-					vo.setBldgprusarea((String) row.get(practiceAttribute[7]));
-					vo.setGrottar((String) row.get(practiceAttribute[8]));
-
+		public static void main(String[] args) throws org.json.simple.parser.ParseException {
+			JSONParser parser = new JSONParser();
+			DataDAO dao = new DataDAO();
 			
-				}
+			int DBresult=0;
+			
+			String[] practiceAttribute = {
+					"kinderinfoId",
+					"officeedu",
+					"subofficeedu",
+					"kindername",
+					"establish",
+					"edate",
+					"odate",
+					"addr",
+					"telno",
+					"hpaddr",
+					"opertime",
+					"clcnt3",
+					"clcnt4",
+					"clcnt5",
+					"mixclcnt",
+					"shclcnt",
+					"ppcnt3",
+					"ppcnt4",
+					"ppcnt5",
+					"mixppcnt",
+					"clcnt3",
+					"clcnt4",
+					"clcnt5",
+					"mixclcnt",
+					"shppcnt"	
+					};
+			
+			//String[] result = new String[practiceAttribute.length];
+			KinderInfoVO vo = new KinderInfoVO();
+			
+			try {
+			
+				JSONObject obj = (JSONObject)parser.parse(new FileReader("C:/Users/김민지/momsmap/momsmap/kinderinfo_gn.json"));
+				
+				//JSONObject dataBody = (JSONObject) parser.parse(obj.get("kinderInfo")); Object로 불러올 때
+				JSONArray bodyArray = (JSONArray)obj.get("kinderInfo"); //JsonArray로 불러 올 때
+				System.out.println(bodyArray.size());
+				for(int i =0;i < bodyArray.size();i++) {
+					JSONObject row = (JSONObject)bodyArray.get(i);
 
-				DBresult = dao.insertBuilding(vo);
+					for(int j =0;j < practiceAttribute.length;j++) {
+				
+					     vo.setOfficeedu((String)row.get(practiceAttribute[0]));
+					     vo.setSubofficeedu((String)row.get(practiceAttribute[1]));
+					     vo.setKindername((String)row.get(practiceAttribute[2]));
+					     vo.setEstablish((String)row.get(practiceAttribute[3]));
+					     vo.setEdate((String)row.get(practiceAttribute[4]));
+					     vo.setOdate((String)row.get(practiceAttribute[5]));
+					     vo.setAddr((String)row.get(practiceAttribute[6]));
+					    vo.setTelno((String)row.get(practiceAttribute[7]));
+					    vo.setHpaddr((String)row.get(practiceAttribute[8]));
+					    vo.setOpertime((String)row.get(practiceAttribute[9]));
+					    vo.setClcnt3((String)row.get(practiceAttribute[10]));
+					    vo.setClcnt4((String)row.get(practiceAttribute[11]));
+					    vo.setClcnt5((String)row.get(practiceAttribute[12]));
+					    vo.setMixclcnt((String)row.get(practiceAttribute[13]));
+					    vo.setShclcnt((String)row.get(practiceAttribute[14]));
+					    vo.setPpcnt3((String)row.get(practiceAttribute[15]));
+					    vo.setPpcnt4((String)row.get(practiceAttribute[16]));
+					    vo.setPpcnt5((String)row.get(practiceAttribute[17]));
+					    vo.setMixppcnt((String)row.get(practiceAttribute[18]));
+					    vo.setShppcnt((String)row.get(practiceAttribute[19]));
+					    
+				}
+				
+				DBresult = dao.insertKinderInfo(vo);
+				}
+				if(DBresult==1) {
+					System.out.println("성공");
+				}
+				else {
+					System.out.println("실패");
+				}
 			}
-			if (DBresult == 1) {
-				System.out.println("성공");
-			} else {
-				System.out.println("실패");
+			catch(Exception e) {
+				e.printStackTrace();
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
-	}
 	}

@@ -43,10 +43,11 @@ public class DataDAO {
 		}
 	}
 
-	public int insertPractice(SanitaryVO vo) {
+	public int insertMeal(MealVO vo) {
 
 		int rsint = 0;
-		String sql = "insert into practice values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+		String sql = "insert into sanitary(key,officeedu,subofficeedu,kindername,establish,mlsr_oprn_way_tp_cd,cons_ents_nm,al_kpcnt,mlsr_kpcnt, ntrt_tchr_agmt_yn,snge_agmt_ntrt_thcnt,cprt_agmt_ntrt_thcnt,ckcnt,cmcnt,mas_mspl_dclr_yn,page)"
+				+ " values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 		try {
 			con = dbCon();
 			pstat = con.prepareStatement(sql);
@@ -98,6 +99,49 @@ public class DataDAO {
 			pstat.setString(7, vo.getFloorcnt());
 			pstat.setString(8, vo.getBldgprusarea());
 			pstat.setString(9, vo.getGrottar());
+		
+			rsint = pstat.executeUpdate();
+			if (rsint > 0) {
+				return 1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbClose(con, pstat, rs);
+		}
+
+		return 0;
+	}
+	
+	public int insertKinderInfo(KinderInfoVO vo) {
+		int rsint = 0;
+		String sql = "insert into kinderinfo values(concat('GN', to_char(kinder_seq.nextval, '009')),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		try {
+			con = dbCon();
+			pstat = con.prepareStatement(sql);
+			
+			
+			pstat.setString(1, vo.getOfficeedu());
+			pstat.setString(2, vo.getSubofficeedu());
+			pstat.setString(3, vo.getKindername());
+			pstat.setString(4, vo.getEstablish());
+			pstat.setString(5, vo.getEdate());
+			pstat.setString(6, vo.getOdate());
+			pstat.setString(7, vo.getAddr());
+			pstat.setString(8, vo.getTelno());
+			pstat.setString(9, vo.getHpaddr());
+			pstat.setString(10, vo.getOpertime());
+			pstat.setString(11, vo.getClcnt3());
+			pstat.setString(12, vo.getClcnt4());
+			pstat.setString(13, vo.getClcnt5());
+			pstat.setString(14, vo.getMixclcnt());
+			pstat.setString(15, vo.getShclcnt());
+			pstat.setString(16, vo.getPpcnt3());
+			pstat.setString(17, vo.getPpcnt4());
+			pstat.setString(18, vo.getPpcnt5());
+			pstat.setString(19, vo.getMixppcnt());
+			pstat.setString(20, vo.getShppcnt());
+			
 		
 			rsint = pstat.executeUpdate();
 			if (rsint > 0) {
