@@ -2,7 +2,7 @@ package lab.java.data;
 
 public class TeacherVO {
 	private String teacherId;
-	private int key;
+	private String key;
 	private String drcnt;
 	private String adcnt;
 	private String hdst_thcnt;
@@ -18,6 +18,8 @@ public class TeacherVO {
 	private String rgth_gd1_qacnt;
 	private String rgth_gd2_qacnt;
 	private String asth_qacnt;
+	private String kindername;
+	
 	public TeacherVO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -28,10 +30,10 @@ public class TeacherVO {
 	public void setTeacherId(String teacherId) {
 		this.teacherId = teacherId;
 	}
-	public int getKey() {
+	public String getKey() {
 		return key;
 	}
-	public void setKey(int key) {
+	public void setKey(String key) {
 		this.key = key;
 	}
 	public String getDrcnt() {
@@ -123,6 +125,12 @@ public class TeacherVO {
 	}
 	public void setAsth_qacnt(String asth_qacnt) {
 		this.asth_qacnt = asth_qacnt;
+	}
+	public String getKindername() {
+		return kindername;
+	}
+	public void setKindername(String kindername) {
+		this.kindername = kindername;
 	}
 	
 	

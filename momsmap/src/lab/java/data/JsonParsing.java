@@ -57,10 +57,10 @@ package lab.java.data;
 			
 			try {
 			
-				JSONObject obj = (JSONObject)parser.parse(new FileReader("C:/Users/±è¹ÎÁö/momsmap/momsmap/kinderinfo_gn.json"));
+				JSONObject obj = (JSONObject)parser.parse(new FileReader("C:/Users/ê¹€ë¯¼ì§€/momsmap/momsmap/kinderinfo_gn.json"));
 				
-				//JSONObject dataBody = (JSONObject) parser.parse(obj.get("kinderInfo")); Object·Î ºÒ·¯¿Ã ¶§
-				JSONArray bodyArray = (JSONArray)obj.get("kinderInfo"); //JsonArray·Î ºÒ·¯ ¿Ã ¶§
+				//JSONObject dataBody = (JSONObject) parser.parse(obj.get("kinderInfo")); Objectåª›ì•¹ê»œ ï¿½ë™†ï¿½ë–›
+				JSONArray bodyArray = (JSONArray)obj.get("kinderInfo"); //JsonArrayï¿½ë™†ï¿½ë–›
 				System.out.println(bodyArray.size());
 				for(int i =0;i < bodyArray.size();i++) {
 					JSONObject row = (JSONObject)bodyArray.get(i);
@@ -93,10 +93,10 @@ package lab.java.data;
 				DBresult = dao.insertKinderInfo(vo);
 				}
 				if(DBresult==1) {
-					System.out.println("¼º°ø");
+					System.out.println("ì„±ê³µ");
 				}
 				else {
-					System.out.println("½ÇÆÐ");
+					System.out.println("ì‹¤íŒ¨");
 				}
 			}
 			catch(Exception e) {

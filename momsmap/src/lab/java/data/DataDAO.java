@@ -23,7 +23,7 @@ public class DataDAO {
 			System.out.println("driver load");
 			con = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("user"),
 					prop.getProperty("pwd"));
-			System.out.println("db connect¼º°ø");
+			System.out.println("db connect success");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -115,7 +115,7 @@ public class DataDAO {
 	
 	public int insertKinderInfo(KinderInfoVO vo) {
 		int rsint = 0;
-		String sql = "insert into kinderinfo values('GN'||to_char(kinder_seq.nextval,'FM009'),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into kinderinfo values('DM'||to_char(kinder_seq.nextval,'FM009'),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try {
 			con = dbCon();
 			pstat = con.prepareStatement(sql);
@@ -141,6 +141,47 @@ public class DataDAO {
 			pstat.setString(18, vo.getPpcnt5());
 			pstat.setString(19, vo.getMixppcnt());
 			pstat.setString(20, vo.getShppcnt());
+			
+		
+			rsint = pstat.executeUpdate();
+			if (rsint > 0) {
+				return 1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbClose(con, pstat, rs);
+		}
+
+		return 0;
+	}
+	
+	public int insertTeacher(TeacherVO vo) {
+		int rsint = 0;
+		String sql = "insert into teacher values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		try {
+			con = dbCon();
+			pstat = con.prepareStatement(sql);
+			
+			
+			pstat.setString(1, vo.getTeacherId());
+			pstat.setString(2, vo.getKey());
+			pstat.setString(3, vo.getDrcnt());
+			pstat.setString(4, vo.getAdcnt());
+			pstat.setString(5, vo.getHdst_thcnt());
+			pstat.setString(6, vo.getAsps_thcnt());
+			pstat.setString(7, vo.getGnrl_thcnt());
+			pstat.setString(8, vo.getSpcn_thcnt());
+			pstat.setString(9, vo.getNtcnt());
+			pstat.setString(10, vo.getNtrt_thcnt());
+			pstat.setString(11, vo.getShcnt_thcnt());
+			pstat.setString(12, vo.getIncnt());
+			pstat.setString(13, vo.getOwcnt());
+			pstat.setString(14, vo.getHdst_tchr_qacnt());
+			pstat.setString(15, vo.getRgth_gd1_qacnt());
+			pstat.setString(16, vo.getRgth_gd2_qacnt());
+			pstat.setString(17, vo.getAsth_qacnt());
+			pstat.setString(18, vo.getKindername());
 			
 		
 			rsint = pstat.executeUpdate();

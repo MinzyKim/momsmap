@@ -149,7 +149,12 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="momsmap" path="/momsmap" reloadable="true" source="org.eclipse.jst.jee.server:momsmap"/></Host>
+      <Context docBase="momsmap" path="/momsmap" reloadable="true" source="org.eclipse.jst.jee.server:momsmap"/>
+      <Context docBase="spring_momsmap" path="/spring_momsmap" reloadable="true" source="org.eclipse.jst.j2ee.server:spring_momsmap">
+      <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/oracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:orcl" username="momsmap" />
+      </Context>
+      
+      </Host>
     </Engine>
   </Service>
 </Server>
