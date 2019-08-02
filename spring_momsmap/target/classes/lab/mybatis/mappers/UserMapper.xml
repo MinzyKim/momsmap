@@ -3,4 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="lab.mybatis.user.UserMapper">
+
+  <select id="getKinderList" resultType="lab.spring.model.KinderInfoVO">
+  	select * from KINDERINFO
+  </select>
+
 </mapper>

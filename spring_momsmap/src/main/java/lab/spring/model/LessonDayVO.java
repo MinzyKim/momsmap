@@ -1,4 +1,4 @@
-package lab.java.data;
+package lab.spring.model;
 
 public class LessonDayVO {
 	private String lessonId; //½Ã¼³ id
