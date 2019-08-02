@@ -1,4 +1,5 @@
-package lab.spring.mom.model;
+package lab.spring.model;
+
 public class MealVO {
    
    private String classid;

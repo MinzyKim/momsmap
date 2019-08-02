@@ -22,6 +22,22 @@ public class KinderInfoVO {
 	private String ppcnt5;
 	private String mixppcnt;
 	private String shppcnt;
+	private String POINT_Y;
+	private String POINT_X;
+	
+	
+	public String getPOINT_Y() {
+		return POINT_Y;
+	}
+	public void setPOINT_Y(String pOINT_Y) {
+		POINT_Y = pOINT_Y;
+	}
+	public String getPOINT_X() {
+		return POINT_X;
+	}
+	public void setPOINT_X(String pOINT_X) {
+		POINT_X = pOINT_X;
+	}
 	public KinderInfoVO() {
 		super();
 		// TODO Auto-generated constructor stub

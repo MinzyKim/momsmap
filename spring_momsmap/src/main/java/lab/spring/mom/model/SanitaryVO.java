@@ -1,4 +1,4 @@
-package lab.spring.mom.model;
+package lab.spring.model;
 
 public class SanitaryVO {
 	private String key;

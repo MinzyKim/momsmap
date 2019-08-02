@@ -34,10 +34,16 @@ class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	<bean id="dataSource"
 	  class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 	  p:driverClassName="oracle.jdbc.OracleDriver"
+<<<<<<< HEAD
 	  p:url="jdbc:oracle:thin:@localhost:1521:orcl"
 	  p:username="momsmap"
 	  p:password="1234" />
 
+=======
+	  p:url="jdbc:oracle:thin:@70.12.229.230:1521:orcl"
+	  p:username="momsmap"
+	  p:password="1234" />
+>>>>>>> 17227036d89f4731dc30b84a9877c9ac8f604439
 
 
 <!--  SqlSessionFactoryBean에 주입될 DataSource 빈 설정 -->
