@@ -2,5 +2,12 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="lab.mybatis.user.UserMapper">
+<mapper namespace="lab.mybatis.mom.UserMapper">
+
+<select id="findKinderList" resultType="lab.spring.mom.model.kinderInfoVO">
+ select kindername,officeedu,subofficeedu,edate,odate,addr,telno,hpaddr,opertime from kinderinfo
+</select>
+
+
+
 </mapper>

@@ -16,7 +16,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
 <context:annotation-config/>
-<context:component-scan base-package="lab.spring"/>
+<context:component-scan base-package="lab.spring.mom"/>
 
 
 <!-- HandlerMapping Bean (DefaultAnnotationHandlerMapping, 생략가능이라 생략함)-->
@@ -34,9 +34,9 @@ class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	<bean id="dataSource"
 	  class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 	  p:driverClassName="oracle.jdbc.OracleDriver"
-	  p:url="jdbc:oracle:thin:@127.0.0.1:1521:orcl"
-	  p:username="hr"
-	  p:password="oracle" />
+	  p:url="jdbc:oracle:thin:@localhost:1521:orcl"
+	  p:username="momsmap"
+	  p:password="1234" />
 
 
 
@@ -60,18 +60,12 @@ class="org.springframework.web.servlet.view.InternalResourceViewResolver">
  <!-- 
  <mvc:annotation-driven/>
  -->
-
 <beans:bean id="messageSource"
-	class ="org.springframework.context.support.ResourceBundleMessageSource">
-	<property name="basenames">
-		<value>messages.validation</value>
-	</property>
-</beans:bean>
-
-
-
-
-
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<beans:property name="basenames">
+		<beans:value>messages.validation</beans:value>
+		</beans:property>
+		</beans:bean>
 
 <!-- Controller Bean -->
 </beans>
