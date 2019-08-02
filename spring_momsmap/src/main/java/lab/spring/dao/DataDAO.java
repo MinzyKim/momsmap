@@ -6,14 +6,28 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 import java.util.Properties;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import lab.spring.model.BuildingVO;
 import lab.spring.model.KinderInfoVO;
 import lab.spring.model.MealVO;
 import lab.spring.model.TeacherVO;
 
+@Repository
 public class DataDAO {
+	
+	@Autowired
+	SqlSession sqlSession;
+	
+	public List<KinderInfoVO> findKinderList(){
+		return sqlSession.selectList("lab.mybatis.user.UserMapper.getKinderList");
+	}
+	
 	Connection con = null;
 	Properties prop = new Properties();
 	Statement stat = null;
@@ -48,62 +62,63 @@ public class DataDAO {
 		}
 	}
 
-	public int insertMeal(MealVO vo) {
+	public int insertMeal (MealVO vo) {
+	      int rsint = 0;
+	      String sql = "insert into Meal values( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,? )";
+	      
+	      try {
+	         con = dbCon();
+	         pstat = con.prepareStatement(sql);
+	         
+	         pstat.setString(1, vo.getClassid());
+	         pstat.setString(2, vo.getKey());
+	         pstat.setString(3, vo.getMlsr_oprn_way_tp_cd());
+	         pstat.setString(4, vo.getCons_ents_nm());
+	         pstat.setString(5, vo.getAl_kpcnt());
+	         pstat.setString(6, vo.getMlsr_kpcnt());
+	         pstat.setString(7, vo.getNtrt_tchr_agmt_yn());
+	         pstat.setString(8, vo.getSnge_agmt_ntrt_thcnt());
+	         pstat.setString(9, vo.getCprt_agmt_ntrt_thcnt());
+	         pstat.setString(10, vo.getCkcnt());
+	         pstat.setString(11, vo.getCmcnt());
+	         pstat.setString(12, vo.getMas_mspl_dclr_yn());
+	         pstat.setString(13, vo.getKindername());
+	      
+	      
+	         rsint = pstat.executeUpdate();
+	         if (rsint > 0) {
+	            
+	            return 1;
+	            
+	         }
+	         
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      } finally {
+	         dbClose(con, pstat, rs);
+	      }
 
-		int rsint = 0;
-		String sql = "insert into sanitary(key,officeedu,subofficeedu,kindername,establish,mlsr_oprn_way_tp_cd,cons_ents_nm,al_kpcnt,mlsr_kpcnt, ntrt_tchr_agmt_yn,snge_agmt_ntrt_thcnt,cprt_agmt_ntrt_thcnt,ckcnt,cmcnt,mas_mspl_dclr_yn,page)"
-				+ " values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
-		try {
-			con = dbCon();
-			pstat = con.prepareStatement(sql);
-
-			pstat.setString(1, vo.getKey());
-			pstat.setString(2, vo.getOfficeedu());
-			pstat.setString(3, vo.getSubofficeedu());
-			pstat.setString(4, vo.getKindername());
-			pstat.setString(5, vo.getEstablish());
-			pstat.setString(6, vo.getMas_mspl_dclr_yn());
-			pstat.setString(7, vo.getCons_ents_nm());
-			pstat.setString(8, vo.getAl_kpcntnul());
-			pstat.setString(9, vo.getMlsr_kpcnt());
-			pstat.setString(10, vo.getNtrt_tchr_agmt_yn());
-			pstat.setString(11, vo.getSnge_agmt_ntrt_thcnt());
-			pstat.setString(12, vo.getCprt_agmt_ntrt_thcnt());
-			pstat.setString(13, vo.getCkcnt());
-			pstat.setString(14, vo.getCmcnt());
-			pstat.setString(15, vo.getMas_mspl_dclr_yn());
-			pstat.setString(16, vo.getPage());
-			rsint = pstat.executeUpdate();
-			if (rsint > 0) {
-				return 1;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			dbClose(con, pstat, rs);
-		}
-
-		return 0;
-	}
+	      return 0;
+	   }
 	
 	public int insertBuilding(BuildingVO vo) {
 		int rsint = 0;
-		String sql = "insert into establishment values(null, ?, ?, ?, null, ?, ?, ?, ?, ?, ?, null, null, null, null,null,"
-				+ "null,null,null,null,null, null, null, null, null, null, null, null, null, null)";
+		String sql = "insert into BUILDING values(?,?,?,?,?,?)";
+		
+		//values(concat('GN', to_char(kinder_seq.nextval, '009')),?,?,?,?,?)";
+		
 		try {
 			con = dbCon();
 			pstat = con.prepareStatement(sql);
 			
-		  
-			pstat.setString(1, vo.getKey());
-			pstat.setString(2, vo.getOfficeedu());
-			pstat.setString(3, vo.getSubofficeedu());
-			pstat.setString(4, vo.getKindername());
-			pstat.setString(5, vo.getEstablish());
-			pstat.setString(6, vo.getArchyy());
-			pstat.setString(7, vo.getFloorcnt());
-			pstat.setString(8, vo.getBldgprusarea());
-			pstat.setString(9, vo.getGrottar());
+			pstat.setString(1, vo.getBUILDINGID());
+			// 여기서 키값 변경?
+
+			pstat.setString(2, vo.getKey());
+			pstat.setString(3, vo.getArchyy());
+			pstat.setString(4, vo.getFloorcnt());
+			pstat.setString(5, vo.getBldgprusarea());
+			pstat.setString(6, vo.getGrottar());
 		
 			rsint = pstat.executeUpdate();
 			if (rsint > 0) {

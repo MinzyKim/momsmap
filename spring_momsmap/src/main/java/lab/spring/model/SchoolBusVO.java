@@ -1,4 +1,4 @@
-package lab.java.data;
+package lab.spring.model;
 
 public class SchoolBusVO {
 	private String busId; //½Ã¼³ id
