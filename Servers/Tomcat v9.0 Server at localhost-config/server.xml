@@ -152,10 +152,14 @@
       <Context docBase="momsmap" path="/momsmap" reloadable="true" source="org.eclipse.jst.jee.server:momsmap"/>
       
       
+<<<<<<< HEAD
       <Context docBase="kids" path="/kids" reloadable="true" source="org.eclipse.jst.j2ee.server:kids">
       <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/oracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:orcl" username="momsmap"/>
       </Context>
       </Host>
+=======
+      <Context docBase="spring_momsmap" path="/spring_momsmap" reloadable="true" source="org.eclipse.jst.j2ee.server:spring_momsmap"/></Host>
+>>>>>>> 5232b29ed93110e83133ee194b967431d2fc5435
     </Engine>
   </Service>
 </Server>
