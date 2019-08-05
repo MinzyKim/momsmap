@@ -17,9 +17,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import lab.spring.model.KinderInfoVO;
+import lab.spring.model.SafetyVO;
 import lab.spring.service.MapService;
 
 
@@ -42,18 +44,14 @@ public class MapAction {
 				
 	}
 	
-	public String getGreeting() {
-		long now = System.currentTimeMillis();
-		int Hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-		String message = "";
-		if(Hour < 12) {
-			message = "Good Moring 스프링 웹~";
-		}else if(Hour < 18) {
-			message = "Good Afternoon 스프링 웹~";
-		}
-		else {
-			message = "Good Evening 스프링 웹~";
-		}
-		return message;
+	@RequestMapping(value="/search.do", method = RequestMethod.POST)
+	public List<SafetyVO> findCategory(@RequestParam(value="safety[]", required=false) List<String> safety_arr){
+	//ModelAndView mav = new ModelAndView();
+		
+		 List<SafetyVO> s_list = null;
+
+	      s_list = service.findSafety(safety_arr);
+	      return s_list;
+
 	}
 }

@@ -7,5 +7,18 @@
   <select id="getKinderList" resultType="lab.spring.model.KinderInfoVO">
   	select * from KINDERINFO
   </select>
+  
+  <select id="login" resultType="lab.spring.model.UserVO" parameterType="hashmap">
+  	select * from userinfo where userid=#{uid} and userpwd=#{upwd}
+  </select>
+
+  <select id="findSafety" resultType = "lab.spring.model.SafetyVO" parameterType="hashmap">
+           
+   select * from safety 
+   where gas_ck_dt like '2019%'
+   <if test="fire_avd_yn != null">
+     AND fire_avd_yn like #{fire_avd_yn}
+   </if> 
+  </select>
 
 </mapper>

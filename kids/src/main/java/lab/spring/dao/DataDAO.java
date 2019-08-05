@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 
@@ -16,7 +17,9 @@ import org.springframework.stereotype.Repository;
 import lab.spring.model.BuildingVO;
 import lab.spring.model.KinderInfoVO;
 import lab.spring.model.MealVO;
+import lab.spring.model.SafetyVO;
 import lab.spring.model.TeacherVO;
+import lab.spring.model.UserVO;
 
 @Repository
 public class DataDAO {
@@ -24,8 +27,23 @@ public class DataDAO {
 	@Autowired
 	SqlSession sqlSession;
 	
+	public UserVO login(String uid, String upwd) {
+		
+		Object vo = null;
+		HashMap<String, String> hm = new HashMap<String, String>(); 
+		hm.put("uid", uid);
+		hm.put("upwd", upwd);
+		vo=sqlSession.selectOne("lab.mybatis.user.UserMapper.login", hm);
+		
+		return (UserVO)vo;
+	}
+	
 	public List<KinderInfoVO> findKinderList(){
 		return sqlSession.selectList("lab.mybatis.user.UserMapper.getKinderList");
+	}
+	
+	public List<SafetyVO> findSafety(List<String> safety_arr){
+		return sqlSession.selectList("lab.mybatis.user.UserMapper.findSafety");
 	}
 	
 	Connection con = null;
