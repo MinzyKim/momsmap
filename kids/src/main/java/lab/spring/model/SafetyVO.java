@@ -1,6 +1,19 @@
 package lab.spring.model;
 
 public class SafetyVO {
+	private String kinderinfoId;
+	private String officeedu;
+	private String subofficeedu;
+	private String kindername;
+	private String establish;
+	private String edate;
+	private String odate;
+	private String addr;
+	private String telno;
+	private String hpaddr;
+	private String opertime;
+	private String POINT_Y;
+	private String POINT_X;
    private String fire_avd_yn; //소방대피훈련여부
    private String fire_avd_dt; //소방대피훈련일자
    private String gas_ck_yn; //가스점검여부
@@ -16,7 +29,87 @@ public class SafetyVO {
    private String cctv_ist_total; // CCTV 총 설치수
    private String cctv_ist_in; //CCTV 건물 안 설치수
    private String cctv_ist_out;
-   public String getFire_avd_yn() {
+   
+   
+   public String getPOINT_Y() {
+	return POINT_Y;
+}
+public void setPOINT_Y(String pOINT_Y) {
+	POINT_Y = pOINT_Y;
+}
+public String getPOINT_X() {
+	return POINT_X;
+}
+public void setPOINT_X(String pOINT_X) {
+	POINT_X = pOINT_X;
+}
+public String getKinderinfoId() {
+	return kinderinfoId;
+}
+public void setKinderinfoId(String kinderinfoId) {
+	this.kinderinfoId = kinderinfoId;
+}
+public String getOfficeedu() {
+	return officeedu;
+}
+public void setOfficeedu(String officeedu) {
+	this.officeedu = officeedu;
+}
+public String getSubofficeedu() {
+	return subofficeedu;
+}
+public void setSubofficeedu(String subofficeedu) {
+	this.subofficeedu = subofficeedu;
+}
+public String getKindername() {
+	return kindername;
+}
+public void setKindername(String kindername) {
+	this.kindername = kindername;
+}
+public String getEstablish() {
+	return establish;
+}
+public void setEstablish(String establish) {
+	this.establish = establish;
+}
+public String getEdate() {
+	return edate;
+}
+public void setEdate(String edate) {
+	this.edate = edate;
+}
+public String getOdate() {
+	return odate;
+}
+public void setOdate(String odate) {
+	this.odate = odate;
+}
+public String getAddr() {
+	return addr;
+}
+public void setAddr(String addr) {
+	this.addr = addr;
+}
+public String getTelno() {
+	return telno;
+}
+public void setTelno(String telno) {
+	this.telno = telno;
+}
+public String getHpaddr() {
+	return hpaddr;
+}
+public void setHpaddr(String hpaddr) {
+	this.hpaddr = hpaddr;
+}
+public String getOpertime() {
+	return opertime;
+}
+public void setOpertime(String opertime) {
+	this.opertime = opertime;
+}
+public String getFire_avd_yn() {
       return fire_avd_yn;
    }
    public void setFire_avd_yn(String fire_avd_yn) {

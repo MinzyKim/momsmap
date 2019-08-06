@@ -1,5 +1,6 @@
 package lab.spring.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,13 @@ public class MapSeviceImpl implements MapService{
 		// TODO Auto-generated method stub
 		return dao.findSafety(safety_arr);
 	}
+
+
+	public List<SafetyVO> getSafetyList(HashMap<String, String> safety_arr) {
+		// TODO Auto-generated method stub
+		return dao.getSafetyList(safety_arr);
+	}
+	
 	
 	
 	

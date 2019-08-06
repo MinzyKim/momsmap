@@ -46,6 +46,14 @@ public class DataDAO {
 		return sqlSession.selectList("lab.mybatis.user.UserMapper.findSafety");
 	}
 	
+	public List<SafetyVO> getSafetyList(HashMap<String, String> safety_arr){
+		List<SafetyVO> safetyList = null;
+		 
+		safetyList = sqlSession.selectList("lab.mybatis.user.UserMapper.getSafetyList", safety_arr);
+		System.out.println(safetyList.size());
+		return safetyList;
+	}
+	
 	Connection con = null;
 	Properties prop = new Properties();
 	Statement stat = null;

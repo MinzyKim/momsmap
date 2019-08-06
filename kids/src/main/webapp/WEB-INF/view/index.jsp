@@ -31,13 +31,20 @@
 <link
 	href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800'
 	rel='stylesheet' type='text/css'>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="resources/vendors/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" type="text/css"/>
+   <script src="resources/assets/js/findCategory.js" ></script>
 </head>
 
 <body>
 
 
 	<!-- Left Panel -->
-
+ <script src="resources/assets/js/findCategory.js" ></script>
+           
 	<aside id="left-panel" class="left-panel">
 		<nav class="navbar navbar-expand-sm navbar-default">
 			<div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -48,40 +55,61 @@
 					<h3 class="menu-title">카테고리</h3>
 				 <!-- /.menu-title -->
                
+               
+                
                <li class="menu-item-has-children dropdown"><a href="#"
                   class="dropdown-toggle" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false" > <i
                      class="menu-icon fa fa-table"></i>안전
                </a>
                   <ul class="sub-menu children dropdown-menu">
-                    <form action="./search.do" method="post">
+                    <form method="post" name="multiple_check">
                         <ul style="font-family: 'Hanna'";>
                         <li class="custom-control custom-checkbox mb-3">
-
                            <input type="checkbox" class="custom-control-input"
-                              id="customCheck" value = "뿌예예ㅖ" name="example1"> <label
+                              id="customCheck" value = "fire_avd_dt" name="safety"> <label
                               class="custom-control-label" for="customCheck" style="font-family: 'Hanna'";>소방 검사</label>
                         </li>
-
                         <li class="custom-control custom-checkbox mb-3">
                            <input type="checkbox" class="custom-control-input"
-                              id="customCheck2" value = " ㅅㅂ " name="example1"> <label
+                              id="customCheck2" value = "gas_ck_dt" name="safety"> <label
                               class="custom-control-label" for="customCheck2">가스 검사</label>
                         </li>
                            <li class="custom-control custom-checkbox mb-3">
                            <input type="checkbox" class="custom-control-input"
-                              id="customCheck3" value ="dasdsadsa" name="example1"> <label
+                              id="customCheck3" value ="elect_ck_dt" name="safety"> <label
                               class="custom-control-label" for="customCheck3">전기 검사</label>
                         </li>
                            <li class="custom-control custom-checkbox mb-3">
                            <input type="checkbox" class="custom-control-input"
-                              id="customCheck4" name="example1" value = "우ㅃ우ㅖ뼤ㅃ"> <label
+                              id="customCheck4" name="safety" value = "plyg_ck_dt"> <label
                               class="custom-control-label" for="customCheck4">놀이 시설 검사</label>
                         </li>
                            <li class="custom-control custom-checkbox mb-3">
                            <input type="checkbox" class="custom-control-input"
-                              id="customCheck5" name="example1"> <label
+                              id="customCheck5" name="safety" value="cctv여부"> <label
                               class="custom-control-label" for="customCheck5">CCTV 여부</label>
+                 			</li>
+                 			 <li class="custom-control custom-checkbox mb-3">
+                           <input type="checkbox" class="custom-control-input"
+                              id="customCheck6" name="safety" value = "plyg_ck_dt"> <label
+                              class="custom-control-label" for="customCheck4">통학버스 보험</label>
+                        </li>
+                         <li class="custom-control custom-checkbox mb-3">
+                           <input type="checkbox" class="custom-control-input"
+                              id="customCheck7" name="safety" value = "plyg_ck_dt"> <label
+                              class="custom-control-label" for="customCheck4">영유아상해 보험</label>
+                        </li>
+                         <li class="custom-control custom-checkbox mb-3">
+                           <input type="checkbox" class="custom-control-input"
+                              id="customCheck8" name="safety" value = "plyg_ck_dt"> <label
+                              class="custom-control-label" for="customCheck4">유아종합보험</label>
+                        </li>
+                         <li class="custom-control custom-checkbox mb-3">
+                           <input type="checkbox" class="custom-control-input"
+                              id="customCheck9" name="safety" value = "plyg_ck_dt"> <label
+                              class="custom-control-label" for="customCheck4">화재보험</label>
+                        
                         </ul>
                         </li>
                         </form>
@@ -94,7 +122,7 @@
 				</a>
 					<ul class="sub-menu children dropdown-menu">
 
-						<form action="/action_page.php">
+						   <form method="post" name="multiple_check">
 							<ul style="font-family: 'Hanna'";>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck6"
@@ -129,7 +157,7 @@
 				</a>
 					<ul class="sub-menu children dropdown-menu">
 
-						<form action="/action_page.php">
+					   <form method="post" name="multiple_check">
 							<ul style="font-family: 'Hanna'";>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck11"
@@ -164,7 +192,7 @@
 				</a>
 					<ul class="sub-menu children dropdown-menu">
 
-						<form action="/action_page.php">
+						   <form method="post" name="multiple_check">
 							<ul style="font-family: 'Hanna'";>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck16"
@@ -403,7 +431,10 @@ function setMarkerList(map) {
 
 // "마커 보이기" 버튼을 클릭하면 호출되어 배열에 추가된 마커를 지도에 표시하는 함수입니다
 function showMarkers() {
-    setMarkerList(map)    
+    setMarkerList(map)
+    getSafetyArr();
+   // multiple_check.action="./search.do";
+    //multiple_check.submit();   
 }
 
 // "마커 감추기" 버튼을 클릭하면 호출되어 배열에 추가된 마커를 지도에서 삭제하는 함수입니다

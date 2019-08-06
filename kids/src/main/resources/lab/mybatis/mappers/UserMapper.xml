@@ -14,11 +14,59 @@
 
   <select id="findSafety" resultType = "lab.spring.model.SafetyVO" parameterType="hashmap">
            
-   select * from safety 
-   where gas_ck_dt like '2019%'
-   <if test="fire_avd_yn != null">
-     AND fire_avd_yn like #{fire_avd_yn}
-   </if> 
+   select * from safety where
+   <if test="fire_avd_dt != null">
+      fire_avd_dt like '2019%'
+   </if>
+   <if test="gas_ck_dt != null">
+   		gas_ck_dt like '2019%'
+   </if>
+   <if test="fire_safe_dt != null">
+   		fire_safe_dt like '2019%'
+   </if>
+   <if test="elect_ck_dt != null">
+   elect_ck_dt like '2019%'
+   </if>
+   <if test="plyg_ck_dt != null">
+   plyg_ck_dt like '2019%'
+   </if>
   </select>
+  
+   <select id="getSafetyList" resultType="lab.spring.model.SafetyVO" parameterType = "hashmap">
+     select   a.kinderinfoId,
+	 a.officeedu,
+	 a.subofficeedu,
+	 a.kindername,
+	 a.establish,
+	 a.edate,
+	 a.odate,
+	 a.addr,
+	 a.telno,
+	 a.hpaddr,
+	 a.opertime,
+     a.POINT_X, a.POINT_Y, b.fire_avd_dt, b.gas_ck_dt, b.elect_ck_dt, b.PLYG_CK_RS_CD,
+   b.PLYG_CK_DT
+   from KINDERINFO a, SAFETY b
+   where a.kinderinfoid = b.safetyid
+   
+   <!-- <if test="fire_avd_dt != null"> -->
+   <if test="fire_avd_dt != null">
+      and b.fire_avd_dt like '2019%'
+   </if>
+   
+   <if test="gas_ck_dt != null">
+      and b.gas_ck_dt like '2019%'
+
+   </if>
+   <if test="elect_ck_dt != null">
+      and b.elect_ck_dt like '2019%'
+   </if>
+   <if test="plyg_ck_dt != null">
+      and b.plyg_ck_rs_cd = '적합' and plyg_ck_dt like '2019%'
+   </if>
+   
+   <if test=""
+  </select>
+  
 
 </mapper>
