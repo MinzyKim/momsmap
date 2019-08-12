@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import lab.spring.model.BuildingVO;
+import lab.spring.model.CommentVO;
 import lab.spring.model.KinderInfoVO;
 import lab.spring.model.MealVO;
 import lab.spring.model.SafetyVO;
@@ -26,6 +27,13 @@ public class DataDAO {
 	
 	@Autowired
 	SqlSession sqlSession;
+	
+	public int addComment(CommentVO comment) {
+		return sqlSession.insert("lab.mybatis.user.UserMapper.addComment",comment);		
+	}
+	public List<CommentVO> findCommentList(){
+		return sqlSession.selectList("lab.mybatis.user.UserMapper.getCommentList");
+	}
 	
 	public UserVO login(String uid, String upwd) {
 		
@@ -54,6 +62,8 @@ public class DataDAO {
 		return safetyList;
 	}
 	
+	
+	
 	Connection con = null;
 	Properties prop = new Properties();
 	Statement stat = null;
@@ -63,7 +73,7 @@ public class DataDAO {
 	public Connection dbCon() {
 
 		try {
-			prop.load(new FileInputStream("C:/Users/±ËπŒ¡ˆ/momsmap/momsmap/dbinfo.properties"));
+			prop.load(new FileInputStream("C:/Users/±ËπŒ¡ˆ/momsmap/kids/dbinfo.properties"));
 			Class.forName(prop.getProperty("driver"));
 			System.out.println("driver load");
 			con = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("user"),
@@ -157,6 +167,45 @@ public class DataDAO {
 		}
 
 		return 0;
+	}
+	
+	public int insertComment(CommentVO form) {
+		System.out.println("insert »£√‚");
+		StringBuffer sql = null;
+		int cnt = -1;
+		Connection con = null;
+		PreparedStatement stat = null;
+		sql = new StringBuffer();
+		sql.append("insert into KD_COMMENT (cmid, kdid, writer,").append("idate, contents, score)")
+				.append(" values (comment_seq.nextval, ?, ?, sysdate, ").append(" ?, ?)");
+		// request.getRemoteAddr
+		System.out.println(form.getKdid());
+		System.out.println(form.getWriter());
+		System.out.println(form.getContents());
+		System.out.println(form.getScore());
+
+		
+		try {
+			con = dbCon();
+			stat = con.prepareStatement(sql.toString());
+			stat.setString(1, form.getKdid());
+			stat.setString(2, form.getWriter());
+			stat.setString(3, form.getContents());
+			stat.setString(4, form.getScore());
+			System.out.println("DAOæ»ø°º≠");
+			System.out.println(form.getKdid());
+			System.out.println(form.getWriter());
+			System.out.println(form.getContents());
+			System.out.println(form.getScore());
+			
+			cnt = stat.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbClose(con, stat, null);
+		}
+		return cnt;
+
 	}
 	
 	public int insertKinderInfo(KinderInfoVO vo) {

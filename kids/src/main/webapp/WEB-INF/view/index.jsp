@@ -32,89 +32,139 @@
 	href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800'
 	rel='stylesheet' type='text/css'>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script type="text/javascript" src="resources/vendors/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="resources/vendors/bootstrap/bootstrap.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" type="text/css"/>
-   <script src="resources/assets/js/findCategory.js" ></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.js"></script>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css"
+	type="text/css" />
+<script src="resources/assets/js/findCategory.js"></script>
+<style>
+.header{
+   width:150%
+   }
+
+.main-menu {
+	margin-top: 15px;
+	width: 98%;
+}
+
+.menu-title {
+	margin-top: -20px
+}
+
+.title_img {
+	margin-top: 30px;
+}
+
+#hi {
+	width: 360px;
+	height: 300px;
+}
+
+#but {
+	width: 100px;
+	background-color: yellow;
+	border: none;
+	color: black;
+	padding: 15px 0;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	margin: 4px;
+	cursor: pointer;
+}
+.col-sm-7{
+   max-width: 10%;
+}
+</style>
+
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+
+
+</script>
 </head>
 
 <body>
 
 
 	<!-- Left Panel -->
- <script src="resources/assets/js/findCategory.js" ></script>
-           
+	<script src="resources/assets/js/findCategory.js"></script>
+
 	<aside id="left-panel" class="left-panel">
 		<nav class="navbar navbar-expand-sm navbar-default">
 			<div id="main-menu" class="main-menu collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#" onclick="showMarkers();"> <i
-							class="menu-icon fa fa-dashboard"></i>엄마의 지도
+					<li class="active"><a href="#" onclick="showMarkers();"> 
+					
+					<img id="title_img"alt="엄마의 지도" src="resources/images/title.png" 
+				width ="130%" height="130%">
 					</a></li>
 					<h3 class="menu-title">카테고리</h3>
-				 <!-- /.menu-title -->
-               
-               
-                
-               <li class="menu-item-has-children dropdown"><a href="#"
-                  class="dropdown-toggle" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false" > <i
-                     class="menu-icon fa fa-table"></i>안전
-               </a>
-                  <ul class="sub-menu children dropdown-menu">
-                    <form method="post" name="multiple_check">
-                        <ul style="font-family: 'Hanna'";>
-                        <li class="custom-control custom-checkbox mb-3">
-                           <input type="checkbox" class="custom-control-input"
-                              id="customCheck" value = "fire_avd_dt" name="safety"> <label
-                              class="custom-control-label" for="customCheck" style="font-family: 'Hanna'";>소방 검사</label>
-                        </li>
-                        <li class="custom-control custom-checkbox mb-3">
-                           <input type="checkbox" class="custom-control-input"
-                              id="customCheck2" value = "gas_ck_dt" name="safety"> <label
-                              class="custom-control-label" for="customCheck2">가스 검사</label>
-                        </li>
-                           <li class="custom-control custom-checkbox mb-3">
-                           <input type="checkbox" class="custom-control-input"
-                              id="customCheck3" value ="elect_ck_dt" name="safety"> <label
-                              class="custom-control-label" for="customCheck3">전기 검사</label>
-                        </li>
-                           <li class="custom-control custom-checkbox mb-3">
-                           <input type="checkbox" class="custom-control-input"
-                              id="customCheck4" name="safety" value = "plyg_ck_dt"> <label
-                              class="custom-control-label" for="customCheck4">놀이 시설 검사</label>
-                        </li>
-                           <li class="custom-control custom-checkbox mb-3">
-                           <input type="checkbox" class="custom-control-input"
-                              id="customCheck5" name="safety" value="cctv여부"> <label
-                              class="custom-control-label" for="customCheck5">CCTV 여부</label>
-                 			</li>
-                 			 <li class="custom-control custom-checkbox mb-3">
-                           <input type="checkbox" class="custom-control-input"
-                              id="customCheck6" name="safety" value = "plyg_ck_dt"> <label
-                              class="custom-control-label" for="customCheck4">통학버스 보험</label>
-                        </li>
-                         <li class="custom-control custom-checkbox mb-3">
-                           <input type="checkbox" class="custom-control-input"
-                              id="customCheck7" name="safety" value = "plyg_ck_dt"> <label
-                              class="custom-control-label" for="customCheck4">영유아상해 보험</label>
-                        </li>
-                         <li class="custom-control custom-checkbox mb-3">
-                           <input type="checkbox" class="custom-control-input"
-                              id="customCheck8" name="safety" value = "plyg_ck_dt"> <label
-                              class="custom-control-label" for="customCheck4">유아종합보험</label>
-                        </li>
-                         <li class="custom-control custom-checkbox mb-3">
-                           <input type="checkbox" class="custom-control-input"
-                              id="customCheck9" name="safety" value = "plyg_ck_dt"> <label
-                              class="custom-control-label" for="customCheck4">화재보험</label>
-                        
-                        </ul>
-                        </li>
-                        </form>
-                        </ul>
-                    </li>
+					<!-- /.menu-title -->
+
+
+
+					<li class="menu-item-has-children dropdown"><a href="#"
+						class="dropdown-toggle" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false"> <i
+							class="menu-icon fa fa-table"></i>안전
+					</a>
+						<ul class="sub-menu children dropdown-menu">
+							<form method="post" name="multiple_check">
+								<ul style="font-family: 'Hanna'";>
+									<li class="custom-control custom-checkbox mb-3"><input
+										type="checkbox" class="custom-control-input" id="customCheck"
+										value="fire_avd_dt" name="safety"> <label
+										class="custom-control-label" for="customCheck"
+										style="font-family: 'Hanna'";>소방 검사</label></li>
+									<li class="custom-control custom-checkbox mb-3"><input
+										type="checkbox" class="custom-control-input" id="customCheck2"
+										value="gas_ck_dt" name="safety"> <label
+										class="custom-control-label" for="customCheck2">가스 검사</label>
+									</li>
+									<li class="custom-control custom-checkbox mb-3"><input
+										type="checkbox" class="custom-control-input" id="customCheck3"
+										value="elect_ck_dt" name="safety"> <label
+										class="custom-control-label" for="customCheck3">전기 검사</label>
+									</li>
+									<li class="custom-control custom-checkbox mb-3"><input
+										type="checkbox" class="custom-control-input" id="customCheck4"
+										name="safety" value="plyg_ck_dt"> <label
+										class="custom-control-label" for="customCheck4">놀이 시설
+											검사</label></li>
+									<li class="custom-control custom-checkbox mb-3"><input
+										type="checkbox" class="custom-control-input" id="customCheck5"
+										name="safety" value="cctv여부"> <label
+										class="custom-control-label" for="customCheck5">CCTV
+											여부</label></li>
+									<li class="custom-control custom-checkbox mb-3"><input
+										type="checkbox" class="custom-control-input" id="customCheck1"
+										name="safety" value="plyg_ck_dt"> <label
+										class="custom-control-label" for="customCheck4">통학버스
+											보험</label></li>
+									<li class="custom-control custom-checkbox mb-3"><input
+										type="checkbox" class="custom-control-input" id="customCheck2"
+										name="safety" value="plyg_ck_dt"> <label
+										class="custom-control-label" for="customCheck4">영유아상해
+											보험</label></li>
+									<li class="custom-control custom-checkbox mb-3"><input
+										type="checkbox" class="custom-control-input" id="customCheck3"
+										name="safety" value="plyg_ck_dt"> <label
+										class="custom-control-label" for="customCheck4">유아종합보험</label>
+									</li>
+									<li class="custom-control custom-checkbox mb-3"><input
+										type="checkbox" class="custom-control-input" id="customCheck4"
+										name="safety" value="plyg_ck_dt"> <label
+										class="custom-control-label" for="customCheck4">화재보험</label>
+								</ul></li>
+					</form>
+				</ul>
+				</li>
 
 				<li class="menu-item-has-children dropdown"><a href="#"
 					class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
@@ -122,64 +172,56 @@
 				</a>
 					<ul class="sub-menu children dropdown-menu">
 
-						   <form method="post" name="multiple_check">
+						<form method="post" name="multiple_check">
 							<ul style="font-family: 'Hanna'";>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck6"
-									name="example1"> <label class="custom-control-label"
-									for="customCheck6">소방 검사</label></li>
+									name="sanitary" value="arql_chk_dt"> <label
+									class="custom-control-label" for="customCheck6">실내공기질</label></li>
 
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck7"
-									name="example1"> <label class="custom-control-label"
-									for="customCheck7">가스 검사</label></li>
+									name="sanitary" value="fxtm_dsnf_chk_dt"> <label
+									class="custom-control-label" for="customCheck7">정기소독</label></li>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck8"
-									name="example1"> <label class="custom-control-label"
-									for="customCheck8">전기 검사</label></li>
+									name="sanitary" value="mdst_chk_dt"> <label
+									class="custom-control-label" for="customCheck8">미세먼지</label></li>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck9"
-									name="example1"> <label class="custom-control-label"
-									for="customCheck9">놀이 시설 검사</label></li>
-								<li class="custom-control custom-checkbox mb-3"><input
-									type="checkbox" class="custom-control-input" id="customCheck10"
-									name="example1"> <label class="custom-control-label"
-									for="customCheck10">CCTV 여부</label>
-							</ul></li>
-				</form>
+									name="sanitary" value="mas_mspl_dclr_yn"> <label
+									class="custom-control-label" for="customCheck9">집단급식소</label></li>
 
-				</ul>
+							</ul>
+						</form>
 
-				</li>
+					</ul></li>
 				<li class="menu-item-has-children dropdown"><a href="#"
 					class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <i class="menu-icon fa fa-table"></i>안전
+					aria-expanded="false"> <i class="menu-icon fa fa-table"></i>시설정보
 				</a>
 					<ul class="sub-menu children dropdown-menu">
 
-					   <form method="post" name="multiple_check">
+						<form method="post" name="multiple_check">
 							<ul style="font-family: 'Hanna'";>
+								<li class="custom-control custom-checkbox mb-3"><input
+									type="checkbox" class="custom-control-input" id="customCheck10"
+									name="example1" value="crcnt"> <label
+									class="custom-control-label" for="customCheck11">교실 수</label></li>
+
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck11"
 									name="example1"> <label class="custom-control-label"
-									for="customCheck11">소방 검사</label></li>
-
+									for="customCheck12" value="hlsparea">보건/위생공간</label></li>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck12"
-									name="example1"> <label class="custom-control-label"
-									for="customCheck12">가스 검사</label></li>
+									name="example1" value="phgrindrarea"> <label
+									class="custom-control-label" for="customCheck13">체육장</label></li>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck13"
-									name="example1"> <label class="custom-control-label"
-									for="customCheck13">전기 검사</label></li>
-								<li class="custom-control custom-checkbox mb-3"><input
-									type="checkbox" class="custom-control-input" id="customCheck14"
-									name="example1"> <label class="custom-control-label"
-									for="customCheck14">놀이 시설 검사</label></li>
-								<li class="custom-control custom-checkbox mb-3"><input
-									type="checkbox" class="custom-control-input" id="customCheck15"
-									name="example1"> <label class="custom-control-label"
-									for="customCheck15">CCTV 여부</label>
+									name="example1" value="ktchmssparea"> <label
+									class="custom-control-label" for="customCheck14">조리실/급식공간</label></li>
+
 							</ul></li>
 				</form>
 
@@ -188,33 +230,33 @@
 
 				<li class="menu-item-has-children dropdown"><a href="#"
 					class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <i class="menu-icon fa fa-table"></i>위생
+					aria-expanded="false"> <i class="menu-icon fa fa-table"></i>교육환경
 				</a>
 					<ul class="sub-menu children dropdown-menu">
 
-						   <form method="post" name="multiple_check">
+						<form method="post" name="multiple_check">
 							<ul style="font-family: 'Hanna'";>
 								<li class="custom-control custom-checkbox mb-3"><input
-									type="checkbox" class="custom-control-input" id="customCheck16"
-									name="example1"> <label class="custom-control-label"
-									for="customCheck16">소방 검사</label></li>
+									type="checkbox" class="custom-control-input" id="customCheck14"
+									name="example1" value="spcn_thcnt"> <label
+									class="custom-control-label" for="customCheck14">특수 교사</label></li>
 
 								<li class="custom-control custom-checkbox mb-3"><input
+									type="checkbox" class="custom-control-input" id="customCheck15"
+									name="example1" value="ntcnt"> <label
+									class="custom-control-label" for="customCheck15">보건 교사</label></li>
+								<li class="custom-control custom-checkbox mb-3"><input
+									type="checkbox" class="custom-control-input" id="customCheck16"
+									name="example1" value="ntrt_thcnt"> <label
+									class="custom-control-label" for="customCheck16">영양교사</label></li>
+								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck17"
-									name="example1"> <label class="custom-control-label"
-									for="customCheck17">가스 검사</label></li>
+									name="example1" value="vhcl_oprn_yn"> <label
+									class="custom-control-label" for="customCheck17">통학버스운영</label></li>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck18"
-									name="example1"> <label class="custom-control-label"
-									for="customCheck18">전기 검사</label></li>
-								<li class="custom-control custom-checkbox mb-3"><input
-									type="checkbox" class="custom-control-input" id="customCheck19"
-									name="example1"> <label class="custom-control-label"
-									for="customCheck19">놀이 시설 검사</label></li>
-								<li class="custom-control custom-checkbox mb-3"><input
-									type="checkbox" class="custom-control-input" id="customCheck20"
-									name="example1"> <label class="custom-control-label"
-									for="customCheck20">CCTV 여부</label>
+									name="example1" value="dclr_vhcnt"> <label
+									class="custom-control-label" for="customCheck18">신고차량여부</label>
 							</ul></li>
 				</ul>
 				</li>
@@ -232,16 +274,20 @@
 						<li class="custom-control custom-checkbox mb-3"><input
 							type="checkbox" class="custom-control-input" id="customCheck21"
 							name="example1"> <label class="custom-control-label"
-							for="customCheck21">소방 검사</label></li>
+							for="customCheck21">안전</label></li>
 
 						<li class="custom-control custom-checkbox mb-3"><input
 							type="checkbox" class="custom-control-input" id="customCheck22"
 							name="example1"> <label class="custom-control-label"
-							for="customCheck22">가스 검사</label></li>
+							for="customCheck22">위생</label></li>
 						<li class="custom-control custom-checkbox mb-3"><input
 							type="checkbox" class="custom-control-input" id="customCheck23"
 							name="example1"> <label class="custom-control-label"
-							for="customCheck23">전기 검사</label></li>
+							for="customCheck23">시설</label></li>
+						<li class="custom-control custom-checkbox mb-3"><input
+							type="checkbox" class="custom-control-input" id="customCheck24"
+							name="example1"> <label class="custom-control-label"
+							for="customCheck23">교육환경</label></li>
 					</ul>
 				</form>
 
@@ -268,13 +314,25 @@
 
 	<div id="right-panel" class="right-panel">
 
-		<!--   왼쪽 메뉴 접는 버튼	-->
-		<header id="header" class="header">
-			<div class="col-sm-7">
-				<a id="menuToggle" class="menutoggle pull-left"><i
-					class="fa fa fa-tasks"></i></a>
-			</div>
-		</header>
+		<!--   왼쪽 메뉴 접는 버튼   -->
+      <header id="header" class="header">
+         <div  id="col-sm-7" class="col-sm-7" width="10%">
+            <a id="menuToggle" class="menutoggle pull-left"><i
+               class="fa fa fa-tasks"></i></a>
+         </div>
+            <div id = "LOL" align ="right"  style ="width: 85%; font-family:hanna; word-spacing:13px;">
+               
+               <form action="login.do" method ="post">
+                     <label class="legend">아이디</label>
+                     <input name ="userid" type="text">
+                     <label class="legend">패스워드</label>
+                     <input name ="userpwd" type="password">
+                       <input type="submit" id="login" value="로그인" />
+                       <a href=add.do><input type="submit" value="회원가입" /></a>
+                     </form>
+                  </div>
+
+      </header>
 
 		<div class="content mt-3">
 
@@ -344,21 +402,146 @@ resultDiv.innerHTML = message;
 var markerPosition3;
 var marker3;
 
+function alert200(){
+	alert("로그인이 필요한 기능입니다.")
+}
+
+function infoFunction(n){
+	alert("정보보기")
+	var C1 = document.getElementById("clean")
+	C1.innerHTML=
+	'<table border=0 cellpadding=0 cellspacing=0>'+
+    '<tr>'+
+    '<td align=center bgcolor="E6ECDE" height="35">유치원명</td>'+
+    '<td align=center bgcolor="ffffff" >'+NameList[n]+'</td>'+
+    '</tr>'+ 
+    '<tr>'+
+    '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">교육청명</td>'+
+    '<td width=240 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+EduList[n]+'</td>'+
+    '</tr>'+
+    '<tr>'+
+    '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">교육지원청명</td>'+
+    '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+SubEduList[n]+'</td>'+
+    '</tr>'+
+    '<tr>'+
+    '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">설립일</td>'+
+    '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+EdateList[n]+'</td>'+
+    '</tr>'+
+    '<tr>'+
+    '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">개원일</td>'+
+    '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+OdateList[n]+'</td>'+
+    '</tr>'+
+    '<tr>'+
+    '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">주소</td>'+
+    '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+AddList[n]+'</td>'+
+    '</tr>'+
+    '<tr>'+
+    '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">전화번호</td>'+
+    '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+TelList[n]+'</td>'+
+    '</tr>'+
+    '<tr>'+
+    '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">홈페이지</td>'+
+    '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10"><a href='+HomeList[n] +'>'+HomeList[n] +'</a>'+'</td>'+
+    '</tr>'+
+    '<tr>'+
+    '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">운영시간</td>'+
+    '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+TimeList[n]+'</td>'+
+    '</tr>'+
+     ' </table>'
+	
+}
+
+function reviewAddFunction(n){
+	alert("리뷰등록")
+	var C1 = document.getElementById("clean")
+	C1.innerHTML='<br><form id="comment" onclick="alert200();" method="post"><div id = "hi" >' +
+	"<table width='95%' align=center><tr><td><textarea name='contents' cols='45' rows='8' onFocus='edit()' align=center>" +
+	"댓글을 작성해주세요</textarea></td></tr><tr><td align=right>" +
+	"<input type='button' value='등 록' id = but style='font-family: Hanna;'>" +
+	"<input type='hidden' value='kdid'>"+
+	"</td></tr></table></div></form>"
+	
+	
+}
+
+
+function reviewFunction(n){	
+	alert("리뷰")
+	var C1 = document.getElementById("clean")
+	//C1.innerHTML= SearchID(IDList[n])
+		SearchID(IDList[n],n)
+	
+}
+
+function scoreFunction(n){	
+	alert("점수")
+	var C1 = document.getElementById("clean")
+	C1.innerHTML=NameList[n]
+}
+
+
+function SearchID (n,count){
+	var C1 = document.getElementById("clean")
+	C1.innerHTML= "<br>"
+	
+	<c:forEach items="${comments}" var="comment">
+	
+	if("${comment.kdid}"==n){
+		var $div = $('<span> ${comment.writer} (${comment.score}점)	:	${comment.contents} </span><hr>');
+		$('#clean').append($div);
+		console.log("${comment.kdid}")
+		console.log(${comment.cmid})
+		
+	}
+	</c:forEach>  
+	
+	var $div = $("<input type='button' value='등 록' id = but style='font-family: Hanna;' onclick='reviewAddFunction(" + count + ");' >");
+		$('#clean').append($div);
+}
+
+var count = 0;
+var NameList= [];
+var IDList =[];
+var EduList=[];
+var SubEduList=[];
+var EdateList=[];
+var OdateList=[];
+var AddList=[];
+var TelList=[];
+var HomeList=[];
+var TimeList=[];
+
 <c:forEach items="${kinders}" var="kinder">
+NameList.push("${kinder.kindername}")
+IDList.push("${kinder.kinderinfoId}")
+EduList.push("${kinder.officeedu}")
+SubEduList.push("${kinder.subofficeedu}")
+EdateList.push("${kinder.edate}")
+OdateList.push("${kinder.odate}")
+AddList.push("${kinder.addr}")
+TelList.push("${kinder.telno}")
+HomeList.push("${kinder.hpaddr}")
+TimeList.push("${kinder.opertime}")
 
 var positions = [
     {
         content:'<div style="padding:5px; width : 360px; height : 380px;">' +
         '<table border=0 cellpadding=0 cellspacing=0>'+'<tr>'+'<td>'+
-        '<img src="resources/images/navi350.png" width = "350" id = "navi" >'+
-        '<table border=0 cellpadding=0 cellspacing=0>'+
+        '<img src="resources/images/navi350.png" alt="" usemap="#Map1"/> '+
+		'<map name="Map1">' +
+		'<area shape = "rect" coords = "7,10,110,40" onclick="infoFunction(' + count+ ');" border = "0" />' +
+		'<area alt = "카페" onclick="reviewFunction(' + count+ ');" shape = "rect" border = "0" coords="125,10,230,40" />' +
+		'<area alt = "블로그" onclick="scoreFunction(' + count+ ');" shape = "rect" border = "0" coords="245,10,342,40" />' +
+		'</map>'+  
+		'<div id = "clean">'+
+		'<table border=0 cellpadding=0 cellspacing=0>'+
         '<tr>'+
         '<td align=center bgcolor="E6ECDE" height="35">유치원명</td>'+
         '<td align=center bgcolor="ffffff" >'+'${kinder.kindername}'+'</td>'+
         '</tr>'+ 
         '<tr>'+
         '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">교육청명</td>'+
-        '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+'${kinder.officeedu}'+'</td>'+
+        '<td width=240 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+'${kinder.officeedu}'+'</td>'+
         '</tr>'+
         '<tr>'+
         '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">교육지원청명</td>'+
@@ -388,13 +571,15 @@ var positions = [
         '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">운영시간</td>'+
         '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+'${kinder.opertime}'+'</td>'+
         '</tr>'+
-         ' </table>'+ 
+         ' </table>'+
+         '</div>' +
         '</div>', 
         latlng:new kakao.maps.LatLng(${kinder.POINT_X},
         		${kinder.POINT_Y})
     }
 ];
 
+count++;
     // 마커를 생성합니다
     var marker3 = new kakao.maps.Marker({
     	position : positions[0].latlng,

@@ -1,6 +1,15 @@
 package lab.spring.model;
 
 public class SanitaryVO {
+	private String kinderinfoId;
+	private String edate;
+	private String odate;
+	private String addr;
+	private String telno;
+	private String hpaddr;
+	private String opertime;
+	private String POINT_Y;
+	private String POINT_X;
 	private String key;
 	private String officeedu;
 	private String  subofficeedu;
@@ -22,6 +31,97 @@ public class SanitaryVO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public String getKinderinfoId() {
+		return kinderinfoId;
+	}
+
+
+	public void setKinderinfoId(String kinderinfoId) {
+		this.kinderinfoId = kinderinfoId;
+	}
+
+
+	public String getEdate() {
+		return edate;
+	}
+
+
+	public void setEdate(String edate) {
+		this.edate = edate;
+	}
+
+
+	public String getOdate() {
+		return odate;
+	}
+
+
+	public void setOdate(String odate) {
+		this.odate = odate;
+	}
+
+
+	public String getAddr() {
+		return addr;
+	}
+
+
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+
+
+	public String getTelno() {
+		return telno;
+	}
+
+
+	public void setTelno(String telno) {
+		this.telno = telno;
+	}
+
+
+	public String getHpaddr() {
+		return hpaddr;
+	}
+
+
+	public void setHpaddr(String hpaddr) {
+		this.hpaddr = hpaddr;
+	}
+
+
+	public String getOpertime() {
+		return opertime;
+	}
+
+
+	public void setOpertime(String opertime) {
+		this.opertime = opertime;
+	}
+
+
+	public String getPOINT_Y() {
+		return POINT_Y;
+	}
+
+
+	public void setPOINT_Y(String pOINT_Y) {
+		POINT_Y = pOINT_Y;
+	}
+
+
+	public String getPOINT_X() {
+		return POINT_X;
+	}
+
+
+	public void setPOINT_X(String pOINT_X) {
+		POINT_X = pOINT_X;
+	}
+
 
 	public String getKey() {
 		return key;

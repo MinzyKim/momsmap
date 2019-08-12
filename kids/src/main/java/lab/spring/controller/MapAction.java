@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import lab.spring.model.CommentVO;
 import lab.spring.model.KinderInfoVO;
 import lab.spring.model.SafetyVO;
 import lab.spring.service.MapService;
@@ -29,13 +30,16 @@ public class MapAction {
 	@RequestMapping(value="/index.do", method = RequestMethod.GET)
 	public ModelAndView sayHello() {
 		ModelAndView mav = new ModelAndView();
+		List<CommentVO> CommentList = null;
 		List<KinderInfoVO> KinderList = null;
-			KinderList = service.findKinderList();
-			mav.addObject("kinders",KinderList);
-			mav.setViewName("index");
+		KinderList = service.findKinderList();
+		CommentList = service.findCommentList();
+		mav.addObject("kinders",KinderList);
+		mav.addObject("comments",CommentList);
+		mav.setViewName("index");
 	
 		return mav;
-				
+			
 	}
 	
 

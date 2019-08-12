@@ -12,6 +12,7 @@
   	select * from userinfo where userid=#{uid} and userpwd=#{upwd}
   </select>
 
+
   <select id="findSafety" resultType = "lab.spring.model.SafetyVO" parameterType="hashmap">
            
    select * from safety where
@@ -30,22 +31,24 @@
    <if test="plyg_ck_dt != null">
    plyg_ck_dt like '2019%'
    </if>
+
+   
   </select>
   
+  <select id = "getCommentList" resultType="lab.spring.model.CommentVO">
+	select * from KD_COMMENT
+	</select>
+  
+    <insert id="addComment" parameterType="lab.spring.model.CommentVO">
+ insert into kd_comment (cmid, kdid, writer, idate, contents, score) 
+ values (comment_seq.nextval,#{kdid},#{writer},sysdate,#{contents},#{score})
+  </insert>
+  
+  
    <select id="getSafetyList" resultType="lab.spring.model.SafetyVO" parameterType = "hashmap">
-     select   a.kinderinfoId,
-	 a.officeedu,
-	 a.subofficeedu,
-	 a.kindername,
-	 a.establish,
-	 a.edate,
-	 a.odate,
-	 a.addr,
-	 a.telno,
-	 a.hpaddr,
-	 a.opertime,
-     a.POINT_X, a.POINT_Y, b.fire_avd_dt, b.gas_ck_dt, b.elect_ck_dt, b.PLYG_CK_RS_CD,
-   b.PLYG_CK_DT
+     select   a.kinderinfoId, a.officeedu, a.subofficeedu, a.kindername, a.establish, a.edate, a.odate,a.addr,a.telno,a.hpaddr,a.opertime,a.POINT_X, a.POINT_Y,
+      		b.fire_avd_dt, b.gas_ck_dt, b.elect_ck_dt, b.PLYG_CK_RS_CD, b.PLYG_CK_DT
+      		
    from KINDERINFO a, SAFETY b
    where a.kinderinfoid = b.safetyid
    
@@ -64,9 +67,44 @@
    <if test="plyg_ck_dt != null">
       and b.plyg_ck_rs_cd = '적합' and plyg_ck_dt like '2019%'
    </if>
-   
-   <if test=""
+
   </select>
+   <select id="getSanitaryList" resultType="lab.spring.model.SanitaryVO" parameterType = "hashmap">
+     select   a.kinderinfoId,
+	 a.officeedu,
+	 a.subofficeedu,
+	 a.kindername,
+	 a.establish,
+	 a.edate,
+	 a.odate,
+	 a.addr,
+	 a.telno,
+	 a.hpaddr,
+	 a.opertime,
+     a.POINT_X, a.POINT_Y, b.arql_chk_dt, b.fxtm_dsnf_chk_dt,
+      b.mdst_chk_dt, b.PLYG_CK_RS_CD,
+   b.PLYG_CK_DT
+   from KINDERINFO a, SANITARY b
+   where a.kinderinfoid = b.sanitaryid
+   
+   <!-- <if test="fire_avd_dt != null"> -->
+   <if test="fire_avd_dt != null">
+      and b.fire_avd_dt like '2019%'
+   </if>
+   
+   <if test="gas_ck_dt != null">
+      and b.gas_ck_dt like '2019%'
+
+   </if>
+   <if test="elect_ck_dt != null">
+      and b.elect_ck_dt like '2019%'
+   </if>
+   <if test="plyg_ck_dt != null">
+      and b.plyg_ck_rs_cd = '적합' and plyg_ck_dt like '2019%'
+   </if>
+
+  </select>
+  
   
 
 </mapper>

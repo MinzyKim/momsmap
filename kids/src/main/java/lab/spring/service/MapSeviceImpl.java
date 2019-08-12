@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lab.spring.dao.DataDAO;
+import lab.spring.model.CommentVO;
 import lab.spring.model.KinderInfoVO;
 import lab.spring.model.SafetyVO;
 import lab.spring.model.UserVO;
@@ -23,6 +24,13 @@ public class MapSeviceImpl implements MapService{
 	@Autowired
 	private DataDAO dao;
 	
+	public int addComment(CommentVO comment) {
+		return dao.addComment(comment);
+	}
+
+	public List<CommentVO> findCommentList() {
+		return dao.findCommentList();
+	}
 
 	public List<KinderInfoVO> findKinderList() {
 		return dao.findKinderList();
