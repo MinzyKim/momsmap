@@ -618,8 +618,7 @@ function showMarkers() {
     
 }
 
-// "마커 감추기" 버튼을 클릭하면 호출되어 배열에 추가된 마커를 지도에서 삭
-제하는 함수입니다
+// "마커 감추기" 버튼을 클릭하면 호출되어 배열에 추가된 마커를 지도에서 삭제하는 함수입니다.
 function hideMarkers() {
     setMarkerList(null);   
     showCount = true;

@@ -42,7 +42,7 @@ public class CommentAction extends HttpServlet  {
 
 		DataDAO dao = new DataDAO();
 		CommentVO form = null;
-//		String page = null;
+//		String page = null;S
 //		page = request.getParameter("page");
 		form = new CommentVO();
 		String kdid = (request.getParameter("kdid"));
@@ -56,7 +56,7 @@ public class CommentAction extends HttpServlet  {
 		System.out.println(request.getParameter("contents"));
 		System.out.println(request.getParameter("writer"));
 		System.out.println(request.getParameter("score"));
-		System.out.println("¿Ö ¾ÈÂïÇô");
+		System.out.println("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
 		if (dao.insertComment(form) > 0) {
 			response.sendRedirect("login.do");

@@ -55,7 +55,7 @@ public class MapAction {
 //			   System.out.println(vo.getPOINT_X()+","+vo.getPOINT_Y());
 //		   }
 	
-
+		  
 	
 				//mav.addObject("kinders",s_list);
 			//	mav.setViewName("index");
