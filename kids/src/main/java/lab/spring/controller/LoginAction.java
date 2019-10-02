@@ -17,29 +17,31 @@ import lab.spring.model.UserVO;
 import lab.spring.service.MapService;
 
 
-@Controller("login.do")
+@Controller
 public class LoginAction {
 	
 	@Autowired
 	MapService service;
 	
-	@RequestMapping(method=RequestMethod.GET)
+	/*
+	@RequestMapping(value = "/login.do",method=RequestMethod.GET)
 	public String form() {
-		System.out.println("·Î±×ÀÎ GET¹æ½Ä");
+		System.out.println("ï¿½Î±ï¿½ï¿½ï¿½ GETï¿½ï¿½ï¿½");
 		return "page-login";
 	}
+	*/
 	
-	@RequestMapping(method=RequestMethod.POST)
+	@RequestMapping(value = "/login.do",method=RequestMethod.POST)
 	public ModelAndView login(@RequestParam(value ="userid",required=false)String uid,
 								@RequestParam(value = "userpwd", required=false)String upwd,
 								HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		UserVO vo = null;
 		vo = service.login(uid, upwd);
-		session.setAttribute("authInfo", vo); //session authInfo¿¡ ÀúÀå.
+		session.setAttribute("authInfo", vo); //session authInfoï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		
 		if(vo!=null) {
-			System.out.println(uid+"·Î±×ÀÎ ¼º°ø!");
+			System.out.println(uid);
 			List<KinderInfoVO> KinderList = null;
 			List<CommentVO> CommentList = null;
 				KinderList = service.findKinderList();
@@ -49,19 +51,19 @@ public class LoginAction {
 				
 				mav.addObject("user", vo);
 				
-			mav.setViewName("index2");
+			mav.setViewName("index");
 		}else {
-			System.out.println("·Î±×ÀÎ ½ÇÆÐ");
+			System.out.println("ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			mav.setViewName("page-register");
 		}
 		return mav;
 	}
 	
-//	@RequestMapping(value="/logout.do")
-//	   public String logout(HttpSession session) {
-//	      session.invalidate();
-//	      return "redirect:/login.do";
-//	   }
+	@RequestMapping(value="/logout.do")
+		public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/index.do";
+	}
 	
 	
 }

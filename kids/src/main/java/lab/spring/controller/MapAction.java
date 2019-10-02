@@ -45,22 +45,11 @@ public class MapAction {
 
 	@RequestMapping(value="/search.do", method = RequestMethod.POST)
 	@ResponseBody
-	public List<SafetyVO>  findCategory(@RequestBody HashMap<String, String> safetyArr){
-	    // ModelAndView mav = new ModelAndView();	  
-		 	 
-		    List<SafetyVO> s_list = null;
+	public List<SafetyVO>  findCategory(@RequestBody HashMap<String, String> safetyArr){	  
 
-		   s_list = service.getSafetyList(safetyArr);
-//		   for(SafetyVO vo : s_list){
-//			   System.out.println(vo.getPOINT_X()+","+vo.getPOINT_Y());
-//		   }
-	
-		  
-	
-				//mav.addObject("kinders",s_list);
-			//	mav.setViewName("index");
+		List<SafetyVO> s_list = null;
 		
-			return s_list;
-		  
+		s_list = service.getSafetyList(safetyArr);
+		return s_list;
 	}
 }

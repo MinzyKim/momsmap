@@ -50,20 +50,16 @@
 	margin-top: 15px;
 	width: 98%;
 }
-
 .menu-title {
 	margin-top: -20px
 }
-
 .title_img {
 	margin-top: 30px;
 }
-
 #hi {
 	width: 360px;
 	height: 300px;
 }
-
 #but {
 	width: 100px;
 	background-color: yellow;
@@ -81,17 +77,12 @@
    max-width: 10%;
 }
 </style>
-
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
-
-
 </script>
 </head>
 
 <body>
-
-
 	<!-- Left Panel -->
 	<script src="resources/assets/js/findCategory.js"></script>
 
@@ -290,30 +281,12 @@
 							for="customCheck23">교육환경</label></li>
 					</ul>
 				</form>
-
-
-
-
-
 			</div>
 			<!-- /.navbar-collapse -->
 		</nav>
 	</aside>
-	<!-- /#left-panel -->
-	<!-- /#left-panel -->
-
-	<!-- Left Panel -->
-
-
-
-
-	<!-- Right Panel -->
-
-
-
 
 	<div id="right-panel" class="right-panel">
-
 		<!--   왼쪽 메뉴 접는 버튼   -->
       <header id="header" class="header">
          <div  id="col-sm-7" class="col-sm-7" width="10%">
@@ -322,6 +295,7 @@
          </div>
             <div id = "LOL" align ="right"  style ="width: 85%; font-family:hanna; word-spacing:13px;">
                
+               <c:if test="${authInfo.userid eq null}">
                <form action="login.do" method ="post">
                      <label class="legend">아이디</label>
                      <input name ="userid" type="text">
@@ -329,25 +303,34 @@
                      <input name ="userpwd" type="password">
                        <input type="submit" id="login" value="로그인" />
                        <a href=add.do><input type="submit" value="회원가입" /></a>
-                     </form>
-                  </div>
-
+				</form>
+				</c:if>
+				
+				<c:if test="${authInfo.userid ne null}">
+				
+					${authInfo.userid}님 환영합니다.
+					
+					<form action="logout.do" method ="post">
+					<input type="submit" id="logout" value="로그아웃" />
+					</form>
+				</c:if>
+				<a href="#" onclick="hideMarkers();">숨기기</a>
+			</div>
       </header>
 
-		<div class="content mt-3">
 
+		<div class="content mt-3">
 			<div id="map" style="width: 110%; height: 700px;"></div>
 			<p>
 				<em>지도를 클릭해주세요!</em>
 			</p>
-
-
 			<div id="clickLatlng"></div>
-
 			<script type="text/javascript"
 				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=048d3839f2032025c0d6225330618498"></script>
 			<script>
+			
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+
 mapOption = { 
     center: new kakao.maps.LatLng(37.53403829266374, 126.98904795128267), // 지도의 중심좌표
     level: 8 // 지도의 확대 레벨
@@ -468,8 +451,8 @@ function reviewAddFunction(n){
 function reviewFunction(n){	
 	alert("리뷰")
 	var C1 = document.getElementById("clean")
-	//C1.innerHTML= SearchID(IDList[n])
-		SearchID(IDList[n],n)
+	
+	SearchID(IDList[n],n)
 	
 }
 
@@ -577,7 +560,7 @@ var positions = [
         latlng:new kakao.maps.LatLng(${kinder.POINT_X},
         		${kinder.POINT_Y})
     }
-];
+]
 
 count++;
     // 마커를 생성합니다
@@ -588,7 +571,9 @@ count++;
     });
 
 marker3.setMap(map);
-markerList.push(marker3);		
+markerList.push(marker3);
+
+
 
   
   var infowindow = new kakao.maps.InfoWindow({
@@ -609,6 +594,7 @@ markerList.push(marker3);
 
 //배열에 추가된 마커들을 지도에 표시하거나 삭제하는 함수입니다
 function setMarkerList(map) {
+	
     for (var i = 0; i < markerList.length; i++) {
         markerList[i].setMap(map);
     }            
@@ -616,10 +602,8 @@ function setMarkerList(map) {
 
 // "마커 보이기" 버튼을 클릭하면 호출되어 배열에 추가된 마커를 지도에 표시하는 함수입니다
 function showMarkers() {
-    setMarkerList(map)
-    getSafetyArr();
-   // multiple_check.action="./search.do";
-    //multiple_check.submit();   
+	hideMarkers();
+    getSafetyArr(map);  
 }
 
 // "마커 감추기" 버튼을 클릭하면 호출되어 배열에 추가된 마커를 지도에서 삭제하는 함수입니다

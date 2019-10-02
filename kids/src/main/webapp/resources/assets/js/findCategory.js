@@ -1,33 +1,14 @@
-function getSafetyArr(){
+function getSafetyArr(map){
   
     var message = { };
     $('input:checkbox[name=safety]:checked').each(function(i){
- 	  // safety_arr.push($(this).val());
+ 	  
     	 var key = $(this).val()
     	  message[key]=  key;
-    	//$.extend(message, object1);
+    	
     }); // 체크된 것만 뽑아 배열에 push
     
 
-   /* function eventOpen()
-    {
- 	   $("input:checkbox[name='safety']:checked").each(function(){
- 	   var checkList="";
- 	   if($(this).prop('checked') == true){
- 		   checkList += $(this).val()+", ";
- 	   }
-    });
- 	   alert(checkList);
-    }*/
-
-  //  var message = { "safety": safety_arr };
-    
- 
-//    var path = document.location.pathname;
-//    var directory = path.substring(path.indexOf('/'), path.lastIndexOf('/'));
-//    
-//    console.log(directory);
-    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
     
     $.ajax({
         type: 'POST',
@@ -41,11 +22,7 @@ function getSafetyArr(){
             	
                    var point_x = value["point_X"];
                    var point_y = value["point_Y"];
-                  
 
-                 
-
-                
                    var markerImageUrl = 'resources/images/사립(법인).png', 
                    markerImageUrl2 = 'resources/images/사립(사인).png',
                    markerImageUrl3 = 'resources/images/공립(단설)빨강.png',
@@ -162,11 +139,7 @@ function getSafetyArr(){
                    '</tr>'+
                     ' </table>'+ 
                    '</div>'
-            
-              // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-               // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-
-              // 인포윈도우를 생성합니다
+                    
               var infowindow = new kakao.maps.InfoWindow({
                   content : iwContent,
                   removable : true
@@ -174,8 +147,6 @@ function getSafetyArr(){
 
               kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker, infowindow)); 
 
-
-            //인포윈도우를 표시하는 클로저를 만드는 함수입니다 
               function makeOverListener(map, marker, infowindow) { 
               	return function() {
               		infowindow.open(map, marker);

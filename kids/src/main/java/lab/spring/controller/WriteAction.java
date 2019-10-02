@@ -63,9 +63,6 @@ public class WriteAction extends HttpServlet{
 
 			if (dao.insertComment(form) > 0) {
 				response.sendRedirect("./index.do");
-			}
-			
+			}	
 		}
-
-
 	}
