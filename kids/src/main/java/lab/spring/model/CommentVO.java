@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class CommentVO {
 	
-	private int cmid;
+	
 	private String kdid;
 	private String writer;
 	private String idate;
@@ -18,12 +18,6 @@ public class CommentVO {
 	public void setScore(String score) {
 		this.score = score;
 	}
-	public int getCmid() {
-		return cmid;
-	}
-	public void setCmid(int cmid) {
-		this.cmid = cmid;
-	}
 	public String getKdid() {
 		return kdid;
 	}
@@ -36,9 +30,6 @@ public class CommentVO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-
-	
-	
 	public String getIdate() {
 		return idate;
 	}

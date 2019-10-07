@@ -19,9 +19,7 @@ import lab.spring.model.UserVO;
 @Service("MapService")
 public class MapSeviceImpl implements MapService{
 	
-//	public List<UserVO> findUser(String condition, String keyword) {
-//		return dao.findUser(condition, keyword);
-//	}
+
 
 	@Autowired
 	private DataDAO dao;
@@ -30,8 +28,8 @@ public class MapSeviceImpl implements MapService{
 		return dao.addComment(comment);
 	}
 
-	public List<CommentVO> findCommentList() {
-		return dao.findCommentList();
+	public List<CommentVO> findCommentList(String kdid) {
+		return dao.findCommentList(kdid);
 	}
 
 	public List<KinderInfoVO> findKinderList() {
