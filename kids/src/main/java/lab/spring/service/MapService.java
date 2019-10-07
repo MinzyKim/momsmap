@@ -6,6 +6,8 @@ import java.util.List;
 import lab.spring.model.CommentVO;
 import lab.spring.model.KinderInfoVO;
 import lab.spring.model.SafetyVO;
+import lab.spring.model.SanitaryVO;
+import lab.spring.model.SearchVO;
 import lab.spring.model.UserVO;
 
 
@@ -18,4 +20,5 @@ public interface MapService {
 	public UserVO login(String uid, String upwd);
 	public List<SafetyVO> findSafety(List<String> safety_arr);
 	public List<SafetyVO> getSafetyList(HashMap<String, String> safety_arr);
+	public List<SanitaryVO> getSanitaryList(HashMap<String, String> sanitary_arr);
 }

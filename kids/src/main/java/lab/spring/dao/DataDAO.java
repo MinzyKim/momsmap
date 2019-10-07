@@ -19,6 +19,8 @@ import lab.spring.model.CommentVO;
 import lab.spring.model.KinderInfoVO;
 import lab.spring.model.MealVO;
 import lab.spring.model.SafetyVO;
+import lab.spring.model.SanitaryVO;
+import lab.spring.model.SearchVO;
 import lab.spring.model.TeacherVO;
 import lab.spring.model.UserVO;
 
@@ -58,11 +60,16 @@ public class DataDAO {
 		List<SafetyVO> safetyList = null;
 		 
 		safetyList = sqlSession.selectList("lab.mybatis.user.UserMapper.getSafetyList", safety_arr);
-		System.out.println(safetyList.size());
 		return safetyList;
 	}
 	
-	
+	public List<SanitaryVO> getSanitaryList(HashMap<String, String> sanitary_arr){
+		List<SanitaryVO> sanitaryList = null;
+		 
+		sanitaryList = sqlSession.selectList("lab.mybatis.user.UserMapper.getSanitaryList", sanitary_arr);
+		System.out.println(sanitaryList.size());
+		return sanitaryList;
+	}
 	
 	Connection con = null;
 	Properties prop = new Properties();

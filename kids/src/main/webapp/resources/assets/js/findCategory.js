@@ -1,14 +1,14 @@
 function getSafetyArr(map){
   
     var message = { };
-    $('input:checkbox[name=safety]:checked').each(function(i){
+    $('input:checkbox[name=search]:checked').each(function(i){
  	  
     	 var key = $(this).val()
     	  message[key]=  key;
     	
+    	   
     }); // 체크된 것만 뽑아 배열에 push
-    
-
+            
     
     $.ajax({
         type: 'POST',
@@ -70,6 +70,11 @@ function getSafetyArr(map){
                var elect_ck_dt='';
                var plyg_ck_dt='';
                
+               var arql_chk_dt='';
+               var fxtm_dsnf_chk_dt='';
+               var mdst_chk_dt='';
+               var ilmn_chk_dt='';
+               
         
                
                if(value["fire_avd_dt"] = 'null'){
@@ -94,6 +99,28 @@ function getSafetyArr(map){
                } else {
             	   plyg_ck_dt = value["plyg_ck_dt"];
                }
+               
+               
+              if(value["arql_chk_dt"] = 'null'){
+            	  arql_chk_dt='준비중입니다.';
+              }else{
+            	  arql_chk_dt=value["arql_chk_dt"];
+              }
+              if(value["fxtm_dsnf_chk_dt"] = 'null'){
+            	  fxtm_dsnf_chk_dt='준비중입니다.';
+              }else{
+            	  fxtm_dsnf_chk_dt=value["fxtm_dsnf_chk_dt"];
+              }
+              if(value["mdst_chk_dt"] = 'null'){
+            	  mdst_chk_dt='준비중입니다.';
+              }else{
+            	  mdst_chk_dt=value["mdst_chk_dt"];
+              }
+              if(value["ilmn_chk_dt"] = 'null'){
+            	  limn_chk_dt='준비중입니다.';
+              }else{
+            	  limn_chk_dt=value["ilmn_chk_dt"];
+              }
                
                
                var iwContent =

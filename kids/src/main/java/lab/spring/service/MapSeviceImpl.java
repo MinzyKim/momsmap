@@ -10,6 +10,8 @@ import lab.spring.dao.DataDAO;
 import lab.spring.model.CommentVO;
 import lab.spring.model.KinderInfoVO;
 import lab.spring.model.SafetyVO;
+import lab.spring.model.SanitaryVO;
+import lab.spring.model.SearchVO;
 import lab.spring.model.UserVO;
 
 
@@ -52,6 +54,12 @@ public class MapSeviceImpl implements MapService{
 	public List<SafetyVO> getSafetyList(HashMap<String, String> safety_arr) {
 		// TODO Auto-generated method stub
 		return dao.getSafetyList(safety_arr);
+	}
+
+	@Override
+	public List<SanitaryVO> getSanitaryList(HashMap<String, String> sanitary_arr) {
+		// TODO Auto-generated method stub
+		return dao.getSanitaryList(sanitary_arr);
 	}
 	
 	

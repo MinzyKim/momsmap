@@ -110,48 +110,29 @@
 								<ul style="font-family: 'Hanna'";>
 									<li class="custom-control custom-checkbox mb-3"><input
 										type="checkbox" class="custom-control-input" id="customCheck"
-										value="fire_avd_dt" name="safety"> <label
+										value="fire_avd_dt" name="search"> <label
 										class="custom-control-label" for="customCheck"
 										style="font-family: 'Hanna'";>소방 검사</label></li>
 									<li class="custom-control custom-checkbox mb-3"><input
 										type="checkbox" class="custom-control-input" id="customCheck2"
-										value="gas_ck_dt" name="safety"> <label
+										value="gas_ck_dt" name="search"> <label
 										class="custom-control-label" for="customCheck2">가스 검사</label>
 									</li>
 									<li class="custom-control custom-checkbox mb-3"><input
 										type="checkbox" class="custom-control-input" id="customCheck3"
-										value="elect_ck_dt" name="safety"> <label
+										value="elect_ck_dt" name="search"> <label
 										class="custom-control-label" for="customCheck3">전기 검사</label>
 									</li>
 									<li class="custom-control custom-checkbox mb-3"><input
 										type="checkbox" class="custom-control-input" id="customCheck4"
-										name="safety" value="plyg_ck_dt"> <label
+										name="search" value="plyg_ck_dt"> <label
 										class="custom-control-label" for="customCheck4">놀이 시설
 											검사</label></li>
 									<li class="custom-control custom-checkbox mb-3"><input
 										type="checkbox" class="custom-control-input" id="customCheck5"
-										name="safety" value="cctv여부"> <label
+										name="search" value="cctv여부"> <label
 										class="custom-control-label" for="customCheck5">CCTV
-											여부</label></li>
-									<li class="custom-control custom-checkbox mb-3"><input
-										type="checkbox" class="custom-control-input" id="customCheck1"
-										name="safety" value="plyg_ck_dt"> <label
-										class="custom-control-label" for="customCheck4">통학버스
-											보험</label></li>
-									<li class="custom-control custom-checkbox mb-3"><input
-										type="checkbox" class="custom-control-input" id="customCheck2"
-										name="safety" value="plyg_ck_dt"> <label
-										class="custom-control-label" for="customCheck4">영유아상해
-											보험</label></li>
-									<li class="custom-control custom-checkbox mb-3"><input
-										type="checkbox" class="custom-control-input" id="customCheck3"
-										name="safety" value="plyg_ck_dt"> <label
-										class="custom-control-label" for="customCheck4">유아종합보험</label>
-									</li>
-									<li class="custom-control custom-checkbox mb-3"><input
-										type="checkbox" class="custom-control-input" id="customCheck4"
-										name="safety" value="plyg_ck_dt"> <label
-										class="custom-control-label" for="customCheck4">화재보험</label>
+											여부</label>
 								</ul></li>
 					</form>
 				</ul>
@@ -162,26 +143,25 @@
 					aria-expanded="false"> <i class="menu-icon fa fa-table"></i>위생
 				</a>
 					<ul class="sub-menu children dropdown-menu">
-
 						<form method="post" name="multiple_check">
 							<ul style="font-family: 'Hanna'";>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck6"
-									name="sanitary" value="arql_chk_dt"> <label
+									name="search" value="arql_chk_dt"> <label
 									class="custom-control-label" for="customCheck6">실내공기질</label></li>
 
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck7"
-									name="sanitary" value="fxtm_dsnf_chk_dt"> <label
+									name="search" value="fxtm_dsnf_chk_dt"> <label
 									class="custom-control-label" for="customCheck7">정기소독</label></li>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck8"
-									name="sanitary" value="mdst_chk_dt"> <label
+									name="search" value="mdst_chk_dt"> <label
 									class="custom-control-label" for="customCheck8">미세먼지</label></li>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck9"
-									name="sanitary" value="mas_mspl_dclr_yn"> <label
-									class="custom-control-label" for="customCheck9">집단급식소</label></li>
+									name="search" value=limn_chk_dt"> <label
+									class="custom-control-label" for="customCheck9">조도관리</label></li>
 
 							</ul>
 						</form>
