@@ -35,13 +35,13 @@
    
   </select>
   
-  <select id = "getCommentList" resultType="lab.spring.model.CommentVO">
-	select * from KD_COMMENT
-	</select>
+  <select id = "getCommentList" resultType="lab.spring.model.CommentVO" parameterType="string">
+	select * from KD_COMMENT where KDID = #{kdid}
+  </select>
   
     <insert id="addComment" parameterType="lab.spring.model.CommentVO">
- insert into kd_comment (cmid, kdid, writer, idate, contents, score) 
- values (comment_seq.nextval,#{kdid},#{writer},sysdate,#{contents},#{score})
+ insert into kd_comment (kdid, writer, idate, contents, score) 
+ values (#{kdid},#{writer},sysdate,#{contents},#{score})
   </insert>
   
   
@@ -67,8 +67,9 @@
    <if test="plyg_ck_dt != null">
       and b.plyg_ck_rs_cd = '적합' and plyg_ck_dt like '2019%'
    </if>
-
   </select>
+  
+  
    <select id="getSanitaryList" resultType="lab.spring.model.SanitaryVO" parameterType = "hashmap">
      select   a.kinderinfoId,
 	 a.officeedu,
@@ -102,7 +103,6 @@
    <if test="plyg_ck_dt != null">
       and b.plyg_ck_rs_cd = '적합' and plyg_ck_dt like '2019%'
    </if>
-
   </select>
   
   

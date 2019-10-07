@@ -41,19 +41,14 @@ public class LoginAction {
 		session.setAttribute("authInfo", vo); //session authInfo�� ����.
 		
 		if(vo!=null) {
-			System.out.println(uid);
 			List<KinderInfoVO> KinderList = null;
 			List<CommentVO> CommentList = null;
 				KinderList = service.findKinderList();
-				CommentList = service.findCommentList();
 				mav.addObject("kinders",KinderList);
-				mav.addObject("comments",CommentList);
-				
 				mav.addObject("user", vo);
 				
 			mav.setViewName("index");
 		}else {
-			System.out.println("�α��� ����");
 			mav.setViewName("page-register");
 		}
 		return mav;
