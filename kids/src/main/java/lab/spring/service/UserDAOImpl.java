@@ -1,21 +1,37 @@
 package lab.spring.service;
 
-import javax.inject.Inject;
 
-import org.apache.ibatis.session.SqlSession;
+import java.util.List; 
+import javax.inject.Inject; 
+import org.apache.ibatis.session.SqlSession; 
 import org.springframework.stereotype.Repository;
 
-import lab.spring.model.UserVO;
+import lab.spring.model.UserVO; 
+
 
 @Repository
-public class SignupDAOImpl implements SignupDAO {
- 
-    @Inject
-    private SqlSession session;
- // 매퍼 
+public class UserDAOImpl implements UserDAO{ 
 	
-    @Override
-    public void insertMember(UserVO VO) {
-        session.insert("insertMember",VO);
-    }
-}
+	@Inject 
+	private SqlSession sqlSession; 
+	
+
+	public List<UserVO> getUserList() throws Exception {
+		
+		return sqlSession.selectList("lab.mybatis.user.UserMapper.getUserList"); } 
+	
+	public UserVO getUserInfo(String uid) throws Exception { 
+		
+		return sqlSession.selectOne("lab.mybatis.user.UserMapper.getUserInfo", uid); }
+
+	public int insertUser(UserVO userVO) throws Exception { 
+		
+		return sqlSession.insert("lab.mybatis.user.UserMapper.insertUser", userVO); } 
+	
+	public int updateUser(UserVO userVO) throws Exception { 
+		
+		return sqlSession.update("lab.mybatis.user.UserMapper.updateUser", userVO); } 
+	
+	
+	}
+

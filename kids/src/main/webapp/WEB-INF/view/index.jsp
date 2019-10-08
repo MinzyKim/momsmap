@@ -286,7 +286,7 @@
                        <input type="submit" id="login" value="로그인" />
                      
 				</form>
-				<a href="/signup/signup.do" class="btn btn-primary">회원가입</a>
+				<a href="./page-register.do" class="btn btn-primary">회원가입</a>
 				</c:if>
 				
 				<c:if test="${authInfo.userid ne null}">

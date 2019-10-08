@@ -1,10 +1,17 @@
 package lab.spring.service;
-import lab.spring.model.UserVO;
+import java.util.List;
 
-public interface SignupService {
+import lab.spring.model.UserVO; 
  
-    //회원가입 Service
-    public void insertMember(UserVO VO);
- 
-    
-}
+public interface UserService { 
+	
+	
+	public List<UserVO> getUserList() throws Exception; 
+	
+	public UserVO getUserInfo(String uid) throws Exception; 
+	public void insertUser(UserVO userVO) throws Exception;
+	public void updateUser(UserVO userVO) throws Exception; 
+	
+	}
+
+

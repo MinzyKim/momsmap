@@ -5,7 +5,7 @@ public class UserVO {
 	private String userpwd;
 	private String username;
 	private String email;
-	private String loacation;
+	private String location;
 	public UserVO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -34,11 +34,16 @@ public class UserVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getLoacation() {
-		return loacation;
+	public String getLocation() {
+		return location;
 	}
-	public void setLoacation(String loacation) {
-		this.loacation = loacation;
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	@Override
+	public String toString() {
+		return "UserVO [userid=" + userid + ", userpwd=" + userpwd + ", username=" + username + ", email=" + email
+				+ ", loacation=" + location + "]";
 	}
 	
 	

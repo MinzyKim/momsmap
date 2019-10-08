@@ -104,23 +104,22 @@
       and b.plyg_ck_rs_cd = '적합' and plyg_ck_dt like '2019%'
    </if>
   </select>
-  <insert id="insertMember" parameterType="lab.spring.UserVO">
-        INSERT INTO userinfo(
-            userid,
-            userpwd,
-            username,
-            email,
-            location
-        )VALUES(
-            #{userid},
-            #{userpwd},
-            #{username},
-            #{email},
-            #{location}
-            
-        )
-    </insert>
-  
-  
-
+  <select id="getUserInfo" resultType="lab.spring.model.UserVO"> 
+  SELECT userid , username , userpwd , EMAIL , location from userinfo
+   WHERE userid = #{userid} 
+   </select> 
+   
+    <select id="getUserList" resultType="lab.spring.model.UserVO"> 
+  SELECT userid , username , userpwd , EMAIL , location from userinfo
+   </select> 
+   
+    
+    <insert id="insertUser" parameterType="lab.spring.model.UserVO">
+     INSERT INTO userinfo (userid , username , userpwd , EMAIL , location) VALUES ( #{userid} , #{username} , #{userpwd} , #{location} ,#{email} ) 
+     </insert> 
+    
+    <update id="updateUser" parameterType="lab.spring.model.UserVO"> 
+    UPDATE userinfo SET username = #{username} , userpwd = #{userpwd} , EMAIL = #{email} WHERE userid = #{userid} 
+    </update> 
+    
 </mapper>

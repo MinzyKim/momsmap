@@ -54,7 +54,7 @@ public class MapSeviceImpl implements MapService{
 		return dao.getSafetyList(safety_arr);
 	}
 
-	@Override
+
 	public List<SanitaryVO> getSanitaryList(HashMap<String, String> sanitary_arr) {
 		// TODO Auto-generated method stub
 		return dao.getSanitaryList(sanitary_arr);
