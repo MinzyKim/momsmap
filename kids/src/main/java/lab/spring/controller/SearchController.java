@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,7 +18,6 @@ import lab.spring.model.BuildingVO;
 import lab.spring.model.SafetyVO;
 import lab.spring.model.SanitaryVO;
 import lab.spring.model.SchoolBusVO;
-import lab.spring.model.SearchVO;
 import lab.spring.model.TeacherVO;
 import lab.spring.service.MapService;
 
@@ -27,33 +28,27 @@ public class SearchController {
 	@Autowired
 	MapService service;
 	
-	
-	@ResponseBody
-	@RequestMapping(value="/search.do", method = RequestMethod.POST)
-	public List<SafetyVO> safetySort(@RequestBody HashMap<String, String> safetyArr/*,
-													HashMap<String, String> envArr, HashMap<String, String> teacherArr*/){	  
-//
-		List<SafetyVO> safL = null;
-//		//List<SearchVO> sanL = null;
-//		//List<SchoolBusVO> busL=nSull;
-//		//List<BuildingVO> buildL=null;
-//		//List<TeacherVO> teacherL=null;
-//		
-//
-//		//safL = service.getSafetyList(safetyArr);
-//		//sanL = service.getSanitaryList(sanitaryArr);
-//		//safL = service.getSafetyList(safetyArr);
-//		//safL = service.getSafetyList(safetyArr);
-//		//safL = service.getSafetyList(safetyArr);
-//		
-		safL = service.getSafetyList(safetyArr);
-		System.out.println(safL.size());
-	      return safL;
-//	
-	}
-	
-	
 	//@RequestMapping(value="/search.do", method = RequestMethod.POST)
+	@ResponseBody //json 데이터 사용할 때, json->문자열로 자동변환 시켜주는 어노테이션
+	public List<SafetyVO> safetySort(@RequestBody HashMap<String, String> safetyArr){
+	    // ModelAndView mav = new ModelAndView();	  
+		 	 
+		    List<SafetyVO> s_list = null;
+
+		   s_list = service.getSafetyList(safetyArr);
+//		   for(SafetyVO vo : s_list){
+//			   System.out.println(vo.getPOINT_X()+","+vo.getPOINT_Y());
+//		   }
+	
+		   System.out.println("데이터 수:"+s_list.size());
+	
+				//mav.addObject("kinders",s_list);
+			//	mav.setViewName("index");
+		
+			return s_list;
+		  
+	}
+	@RequestMapping(value="/search.do", method = RequestMethod.POST)
 	@ResponseBody
 	public List<SanitaryVO>  sanitarySort(@RequestBody HashMap<String, String> sanitaryArr){	  
 

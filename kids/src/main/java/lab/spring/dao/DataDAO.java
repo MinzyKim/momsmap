@@ -20,7 +20,6 @@ import lab.spring.model.KinderInfoVO;
 import lab.spring.model.MealVO;
 import lab.spring.model.SafetyVO;
 import lab.spring.model.SanitaryVO;
-import lab.spring.model.SearchVO;
 import lab.spring.model.TeacherVO;
 import lab.spring.model.UserVO;
 
@@ -68,17 +67,6 @@ public class DataDAO {
 		List<SanitaryVO> sanitaryList = null;
 		 
 		sanitaryList = sqlSession.selectList("lab.mybatis.user.UserMapper.getSanitaryList", sanitary_arr);
-		System.out.println(sanitaryList.size());
 		return sanitaryList;
 	}
-	
-	
-	
-	
-	
-
-
-
-
-	
 }

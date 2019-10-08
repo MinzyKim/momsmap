@@ -1,14 +1,17 @@
 .metadata/
 momsmap/meal.json
 kids/.settings/
-
+.settings
+*/META-INF/*
+kids/pom.xml
 
 # Created by https://www.gitignore.io/api/java,macos,java-web
 # Edit at https://www.gitignore.io/?templates=java,macos,java-web
 
 ### Java ###
 # Compiled class file
-kids/.classpath/
+.classpath
+.class
 
 # Log file
 *.log

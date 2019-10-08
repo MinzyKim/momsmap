@@ -86,13 +86,12 @@
 
 <body>
 	<!-- Left Panel -->
-	<script src="resources/assets/js/findCategory.js"></script>
 
 	<aside id="left-panel" class="left-panel">
 		<nav class="navbar navbar-expand-sm navbar-default">
 			<div id="main-menu" class="main-menu collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#" onclick=getSafetyArr(map);> 
+					<li class="active"><a href="#" onclick=showMarkers();> 
 					<img id="title_img"alt="엄마의 지도" src="resources/images/title.png" width ="130%" height="130%">
 					</a>
 					</li>
@@ -100,9 +99,29 @@
 					<h3 class="menu-title">카테고리</h3>
 					<!-- /.menu-title -->
 
+<script>
+function selectVal(n){
+	if(n==1){
+		  $('#drop_val').val('1')
+
+	}else if(n==2){
+		  $('#drop_val').val('2')
+
+	}else if(n==3){
+		  $('#drop_val').val('3')
+
+	}else if(n==4){
+		  $('#drop_val').val('4')
+
+	}
+}
+</script>
 
 
-					<li class="menu-item-has-children dropdown"><a href="#"
+			
+					<li class="menu-item-has-children dropdown">
+					<input id=drop_val type="hidden" value="" />
+					<a href="#" onclick="selectVal(1)"
 						class="dropdown-toggle" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false"> <i
 							class="menu-icon fa fa-table"></i>안전
@@ -112,27 +131,27 @@
 								<ul style="font-family: 'Hanna'";>
 									<li class="custom-control custom-checkbox mb-3"><input
 										type="checkbox" class="custom-control-input" id="customCheck"
-										value="fire_avd_dt" name="search"> <label
+										value="fire_avd_dt" name="safety"> <label
 										class="custom-control-label" for="customCheck"
 										style="font-family: 'Hanna'";>소방 검사</label></li>
 									<li class="custom-control custom-checkbox mb-3"><input
 										type="checkbox" class="custom-control-input" id="customCheck2"
-										value="gas_ck_dt" name="search"> <label
+										value="gas_ck_dt" name="safety"> <label
 										class="custom-control-label" for="customCheck2">가스 검사</label>
 									</li>
 									<li class="custom-control custom-checkbox mb-3"><input
 										type="checkbox" class="custom-control-input" id="customCheck3"
-										value="elect_ck_dt" name="search"> <label
+										value="elect_ck_dt" name="safety"> <label
 										class="custom-control-label" for="customCheck3">전기 검사</label>
 									</li>
 									<li class="custom-control custom-checkbox mb-3"><input
 										type="checkbox" class="custom-control-input" id="customCheck4"
-										name="search" value="plyg_ck_dt"> <label
+										name="safety" value="plyg_ck_dt"> <label
 										class="custom-control-label" for="customCheck4">놀이 시설
 											검사</label></li>
 									<li class="custom-control custom-checkbox mb-3"><input
 										type="checkbox" class="custom-control-input" id="customCheck5"
-										name="search" value="cctv여부"> <label
+										name="safety" value="cctv여부"> <label
 										class="custom-control-label" for="customCheck5">CCTV
 											여부</label>
 								</ul></li>
@@ -140,7 +159,9 @@
 				</ul>
 				</li>
 
-				<li class="menu-item-has-children dropdown"><a href="#"
+				<li class="menu-item-has-children dropdown">
+				<input id=drop_val type="hidden" value="" />
+				<a href="#" onclick="selectVal(2)"
 					class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> <i class="menu-icon fa fa-table"></i>위생
 				</a>
@@ -149,27 +170,29 @@
 							<ul style="font-family: 'Hanna'";>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck6"
-									name="search" value="arql_chk_dt"> <label
+									name="sanitary" value="arql_chk_dt"> <label
 									class="custom-control-label" for="customCheck6">실내공기질</label></li>
 
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck7"
-									name="search" value="fxtm_dsnf_chk_dt"> <label
+									name="sanitary" value="fxtm_dsnf_chk_dt"> <label
 									class="custom-control-label" for="customCheck7">정기소독</label></li>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck8"
-									name="search" value="mdst_chk_dt"> <label
+									name="sanitary" value="mdst_chk_dt"> <label
 									class="custom-control-label" for="customCheck8">미세먼지</label></li>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck9"
-									name="search" value=limn_chk_dt"> <label
+									name="sanitary" value=ilmn_chk_dt"> <label
 									class="custom-control-label" for="customCheck9">조도관리</label></li>
 
 							</ul>
 						</form>
 
 					</ul></li>
-				<li class="menu-item-has-children dropdown"><a href="#"
+				<li class="menu-item-has-children dropdown">
+				<input id=drop_val type="hidden" value="" />
+				<a href="#" onclick="selectVal(3)"
 					class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> <i class="menu-icon fa fa-table"></i>시설정보
 				</a>
@@ -180,20 +203,24 @@
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck10"
 									name="example1" value="crcnt"> <label
-									class="custom-control-label" for="customCheck11">교실 수</label></li>
+									class="custom-control-label" for="customCheck10">대규모 유치원</label></li>
 
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck11"
 									name="example1"> <label class="custom-control-label"
-									for="customCheck12" value="hlsparea">보건/위생공간</label></li>
+									for="customCheck11" value="hlsparea">소규모 유치원</label></li>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck12"
 									name="example1" value="phgrindrarea"> <label
-									class="custom-control-label" for="customCheck13">체육장</label></li>
+									class="custom-control-label" for="customCheck12">체육장</label></li>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck13"
 									name="example1" value="ktchmssparea"> <label
-									class="custom-control-label" for="customCheck14">조리실/급식공간</label></li>
+									class="custom-control-label" for="customCheck13">조리실/급식공간</label></li>
+									<li class="custom-control custom-checkbox mb-3"><input
+									type="checkbox" class="custom-control-input" id="customCheck14"
+									name="example1" value="ktchmssparea"> <label
+									class="custom-control-label" for="customCheck14">보건/위생공간</label></li>
 
 							</ul></li>
 				</form>
@@ -201,7 +228,8 @@
 				</ul>
 				</li>
 
-				<li class="menu-item-has-children dropdown"><a href="#"
+				<li class="menu-item-has-children dropdown">
+				<input id=drop_val type="hidden" value="" /><a href="#"
 					class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> <i class="menu-icon fa fa-table"></i>교육환경
 				</a>
@@ -210,26 +238,23 @@
 						<form method="post" name="multiple_check">
 							<ul style="font-family: 'Hanna'";>
 								<li class="custom-control custom-checkbox mb-3"><input
-									type="checkbox" class="custom-control-input" id="customCheck14"
+									type="checkbox" class="custom-control-input" id="customCheck15"
 									name="example1" value="spcn_thcnt"> <label
-									class="custom-control-label" for="customCheck14">특수 교사</label></li>
+									class="custom-control-label" for="customCheck15">특수 교사</label></li>
 
 								<li class="custom-control custom-checkbox mb-3"><input
-									type="checkbox" class="custom-control-input" id="customCheck15"
-									name="example1" value="ntcnt"> <label
-									class="custom-control-label" for="customCheck15">보건 교사</label></li>
-								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck16"
-									name="example1" value="ntrt_thcnt"> <label
-									class="custom-control-label" for="customCheck16">영양교사</label></li>
+									name="example1" value="ntcnt"> <label
+									class="custom-control-label" for="customCheck16">보건 교사</label></li>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck17"
-									name="example1" value="vhcl_oprn_yn"> <label
-									class="custom-control-label" for="customCheck17">통학버스운영</label></li>
+									name="example1" value="ntrt_thcnt"> <label
+									class="custom-control-label" for="customCheck17">영양 교사</label></li>
 								<li class="custom-control custom-checkbox mb-3"><input
 									type="checkbox" class="custom-control-input" id="customCheck18"
-									name="example1" value="dclr_vhcnt"> <label
-									class="custom-control-label" for="customCheck18">신고차량여부</label>
+									name="example1" value="vhcl_oprn_yn"> <label
+									class="custom-control-label" for="customCheck18">통학버스운영</label></li>
+								
 							</ul></li>
 				</ul>
 				</li>
@@ -639,22 +664,50 @@ function imageChange(n){
 	return markerImage;
 }
 
-function getSafetyArr(map){
+
+function getSafetyArr(map) {
 	
 	hideMarkers();
-	  
-    var message = {};
+	
+	var message={};
+	
+if($('#drop_val').val()==1){
     $('input:checkbox[name=safety]:checked').each(function(i){
- 	  
-    	 var key = $(this).val()
-    	  message[key]=  key;
-    	 
-    	
+      
+        var key = $(this).val()
+         message[key]=  key;
+        
+       
     }); // 체크된 것만 뽑아 배열에 push
-    
-    
-    console.log("message="+message);
-    
+    }
+    else  if($('#drop_val').val()==2){
+    	 $('input:checkbox[name=sanitary]:checked').each(function(i){
+    	      
+    	        var key = $(this).val()
+    	         message[key]=  key;
+    	        
+    	       
+    	    }); // 체크된 것만 뽑아 배열에 push
+    }
+   else  if($('#drop_val').val()==3){
+	   $('input:checkbox[name=environment]:checked').each(function(i){
+		      
+	        var key = $(this).val()
+	         message[key]=  key;
+	        
+	       
+	    }); // 체크된 것만 뽑아 배열에 push
+       }
+   else  if($('#drop_val').val()==4){
+	   $('input:checkbox[name=teacher]:checked').each(function(i){
+		      
+	        var key = $(this).val()
+	         message[key]=  key;
+	        
+	       
+	    }); // 체크된 것만 뽑아 배열에 push
+   }
+
     $.ajax({
         type: 'POST',
         url:'./search.do',
@@ -663,6 +716,7 @@ function getSafetyArr(map){
         data: JSON.stringify(message), //메시지에 셀렉트 된 인자 정보를 받아서 컨트롤러단으로 넘김. 
         success: function(data) {
         	alert("connect success")
+        	console.log(message)
         	count = 0;
         	markerList = []; // 마커 보이기,숨기기용 배열
         	
@@ -671,7 +725,8 @@ function getSafetyArr(map){
             	
                    var point_x = value["point_X"];
                    var point_y = value["point_Y"];
-
+                   
+				console.log(point_x, point_y)
                    var markerImageUrl = 'resources/images/사립(법인).png', 
                    markerImageUrl2 = 'resources/images/사립(사인).png',
                    markerImageUrl3 = 'resources/images/공립(단설)빨강.png',
@@ -699,37 +754,81 @@ function getSafetyArr(map){
                markerList.push(marker);
                
                count++;
-               
                var point_x='';
-               var fire_avd_dt='';
-               var gas_ck_dt='';
-               var elect_ck_dt='';
-               var plyg_ck_dt='';
-               
-        
-               
-               if(value["fire_avd_dt"] = 'null'){
-            	   fire_avd_dt='준비중입니다.';
-               } else {
-            	   fire_avd_dt = value["fire_avd_dt"];
-               }
-               
-               if(value["gas_ck_dt"] = 'null'){
-            	   gas_ck_dt='준비중입니다.';
-               } else {
-            	   gas_ck_dt = value["gas_ck_dt"];
-               }
-               
-               if(value["elect_ck_dt"] = 'null'){
-            	   elect_ck_dt='준비중입니다.';
-               } else {
-            	   elect_ck_dt = value["elect_ck_dt"];
-               }
-               if(value["plyg_ck_dt"] = 'null'){
-            	   plyg_ck_dt='준비중입니다.';
-               } else {
-            	   plyg_ck_dt = value["plyg_ck_dt"];
-               }
+              
+               if($('#drop_val').val()==1){
+             
+                    var fire_avd_dt='';
+                    var gas_ck_dt='';
+                    var elect_ck_dt='';
+                    var plyg_ck_dt='';
+                    
+             
+                    
+                    if(value["fire_avd_dt"] = 'null'){
+                       fire_avd_dt='준비중입니다.';
+                    } else {
+                       fire_avd_dt = value["fire_avd_dt"];
+                    }
+                    
+                    if(value["gas_ck_dt"] = 'null'){
+                       gas_ck_dt='준비중입니다.';
+                    } else {
+                       gas_ck_dt = value["gas_ck_dt"];
+                    }
+                    
+                    if(value["elect_ck_dt"] = 'null'){
+                       elect_ck_dt='준비중입니다.';
+                    } else {
+                       elect_ck_dt = value["elect_ck_dt"];
+                    }
+                    if(value["plyg_ck_dt"] = 'null'){
+                       plyg_ck_dt='준비중입니다.';
+                    } else {
+                       plyg_ck_dt = value["plyg_ck_dt"];
+                    }
+                }
+                
+                else  if($('#drop_val').val()==2){
+                
+                    var arql_chk_dt='';
+                    var fxtm_dsnf_chk_dt='';
+                    var mdst_chk_dt='';
+                    var ilmn_chk_dt='';
+                    
+                    
+                    if(value["arql_chk_dt"] = 'null'){
+                    	arql_chk_dt='준비중입니다.';
+                    } else {
+                    	arql_chk_dt = value["arql_chk_dt"];
+                    }
+                    
+                    if(value["fxtm_dsnf_chk_dt"] = 'null'){
+                    	fxtm_dsnf_chk_dt='준비중입니다.';
+                    } else {
+                    	fxtm_dsnf_chk_dt = value["fxtm_dsnf_chk_dt"];
+                    }
+                    
+                    if(value["mdst_chk_dt"] = 'null'){
+                    	mdst_chk_dt='준비중입니다.';
+                    } else {
+                    	mdst_chk_dt = value["mdst_chk_dt"];
+                    }
+                    if(value["ilmn_chk_dt"] = 'null'){
+                    	ilmn_chk_dt='준비중입니다.';
+                    } else {
+                    	ilmn_chk_dt = value["ilmn_chk_dt"];
+                    }
+                }
+                 
+                  else  if($('#drop_val').val()==3){
+                         
+                      }
+                  else  if($('#drop_val').val()==4){
+                     
+                  }
+                
+
                
                
                var iwContent =
@@ -804,8 +903,7 @@ function getSafetyArr(map){
  	   alert('errrrrrrrror');
 }
     });
-}
-
+    }
 </script>
 		</div>
 
@@ -825,9 +923,6 @@ function getSafetyArr(map){
 
 
 	<script src="resources/vendors/chart.js/dist/Chart.bundle.min.js"></script>
-	<script src="resources/assets/js/dashboard.js"></script>
-	<script src="resources/assets/js/widgets.js"></script>
-	<script src="resources/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
 	<script
 		src="resources/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
 	<script src="resources/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
