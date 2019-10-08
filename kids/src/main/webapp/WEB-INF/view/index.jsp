@@ -302,8 +302,9 @@
                      <label class="legend">패스워드</label>
                      <input name ="userpwd" type="password">
                        <input type="submit" id="login" value="로그인" />
-                       <a href=add.do><input type="submit" value="회원가입" /></a>
+                     
 				</form>
+				<a href="/signup/signup.do" class="btn btn-primary">회원가입</a>
 				</c:if>
 				
 				<c:if test="${authInfo.userid ne null}">

@@ -32,4 +32,9 @@
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 
+
+<servlet-mapping>
+   <servlet-name>Dispatcher</servlet-name>
+   <url-pattern>*.do</url-pattern>
+</servlet-mapping>
 </web-app>

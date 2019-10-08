@@ -104,6 +104,22 @@
    </if>
 
   </select>
+  <insert id="insertMember" parameterType="lab.spring.UserVO">
+        INSERT INTO userinfo(
+            userid,
+            userpwd,
+            username,
+            email,
+            location
+        )VALUES(
+            #{userid},
+            #{userpwd},
+            #{username},
+            #{email},
+            #{location}
+            
+        )
+    </insert>
   
   
 
