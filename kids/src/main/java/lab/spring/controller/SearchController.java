@@ -27,13 +27,13 @@ public class SearchController {
 	@Autowired
 	MapService service;
 	
-//	
-//	@ResponseBody
-//	//@RequestMapping(value="/search.do", method = RequestMethod.POST)
-//	public List<SafetyVO> safetySort(@RequestBody HashMap<String, String> safetyArr/*,
-//													HashMap<String, String> envArr, HashMap<String, String> teacherArr*/){	  
+	
+	@ResponseBody
+	@RequestMapping(value="/search.do", method = RequestMethod.POST)
+	public List<SafetyVO> safetySort(@RequestBody HashMap<String, String> safetyArr/*,
+													HashMap<String, String> envArr, HashMap<String, String> teacherArr*/){	  
 //
-//		List<SafetyVO> safL = null;
+		List<SafetyVO> safL = null;
 //		//List<SearchVO> sanL = null;
 //		//List<SchoolBusVO> busL=nSull;
 //		//List<BuildingVO> buildL=null;
@@ -46,14 +46,14 @@ public class SearchController {
 //		//safL = service.getSafetyList(safetyArr);
 //		//safL = service.getSafetyList(safetyArr);
 //		
-//		safL = service.getSafetyList(safetyArr);
-//		System.out.println(safL.size());
-//	      return safL;
+		safL = service.getSafetyList(safetyArr);
+		System.out.println(safL.size());
+	      return safL;
 //	
-//	}
+	}
 	
 	
-	@RequestMapping(value="/search.do", method = RequestMethod.POST)
+	//@RequestMapping(value="/search.do", method = RequestMethod.POST)
 	@ResponseBody
 	public List<SanitaryVO>  sanitarySort(@RequestBody HashMap<String, String> sanitaryArr){	  
 
