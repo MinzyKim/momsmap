@@ -112,27 +112,27 @@
 								<ul style="font-family: 'Hanna'";>
 									<li class="custom-control custom-checkbox mb-3"><input
 										type="checkbox" class="custom-control-input" id="customCheck"
-										value="fire_avd_dt" name="search"> <label
+										value="fire_avd_dt" name="safety"> <label
 										class="custom-control-label" for="customCheck"
 										style="font-family: 'Hanna'";>소방 검사</label></li>
 									<li class="custom-control custom-checkbox mb-3"><input
 										type="checkbox" class="custom-control-input" id="customCheck2"
-										value="gas_ck_dt" name="search"> <label
+										value="gas_ck_dt" name="safety"> <label
 										class="custom-control-label" for="customCheck2">가스 검사</label>
 									</li>
 									<li class="custom-control custom-checkbox mb-3"><input
 										type="checkbox" class="custom-control-input" id="customCheck3"
-										value="elect_ck_dt" name="search"> <label
+										value="elect_ck_dt" name="safety"> <label
 										class="custom-control-label" for="customCheck3">전기 검사</label>
 									</li>
 									<li class="custom-control custom-checkbox mb-3"><input
 										type="checkbox" class="custom-control-input" id="customCheck4"
-										name="search" value="plyg_ck_dt"> <label
+										name="safety" value="plyg_ck_dt"> <label
 										class="custom-control-label" for="customCheck4">놀이 시설
 											검사</label></li>
 									<li class="custom-control custom-checkbox mb-3"><input
 										type="checkbox" class="custom-control-input" id="customCheck5"
-										name="search" value="cctv여부"> <label
+										name="safety" value="cctv여부"> <label
 										class="custom-control-label" for="customCheck5">CCTV
 											여부</label>
 								</ul></li>

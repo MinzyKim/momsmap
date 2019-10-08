@@ -28,39 +28,36 @@ public class SearchController {
 	MapService service;
 	
 	
-	@ResponseBody
 	@RequestMapping(value="/search.do", method = RequestMethod.POST)
-	public List<SafetyVO> safetySort(@RequestBody HashMap<String, String> safetyArr/*,
-													HashMap<String, String> envArr, HashMap<String, String> teacherArr*/){	  
-//
-		List<SafetyVO> safL = null;
-//		//List<SearchVO> sanL = null;
-//		//List<SchoolBusVO> busL=nSull;
-//		//List<BuildingVO> buildL=null;
-//		//List<TeacherVO> teacherL=null;
-//		
-//
-//		//safL = service.getSafetyList(safetyArr);
-//		//sanL = service.getSanitaryList(sanitaryArr);
-//		//safL = service.getSafetyList(safetyArr);
-//		//safL = service.getSafetyList(safetyArr);
-//		//safL = service.getSafetyList(safetyArr);
-//		
-		safL = service.getSafetyList(safetyArr);
-		System.out.println(safL.size());
-	      return safL;
-//	
+	@ResponseBody
+	public List<SafetyVO>  findCategory(@RequestBody HashMap<String, String> safetyArr){
+	    // ModelAndView mav = new ModelAndView();	  
+		 	 
+		    List<SafetyVO> s_list = null;
+
+		   s_list = service.getSafetyList(safetyArr);
+//		   for(SafetyVO vo : s_list){
+//			   System.out.println(vo.getPOINT_X()+","+vo.getPOINT_Y());
+//		   }
+	
+		   System.out.println("데이터 수:"+s_list.size());
+	
+				//mav.addObject("kinders",s_list);
+			//	mav.setViewName("index");
+		
+			return s_list;
+		  
 	}
 	
 	
 	//@RequestMapping(value="/search.do", method = RequestMethod.POST)
-	@ResponseBody
-	public List<SanitaryVO>  sanitarySort(@RequestBody HashMap<String, String> sanitaryArr){	  
-
-		List<SanitaryVO> sanL = null;
-		
-		sanL = service.getSanitaryList(sanitaryArr);
-		System.out.println(sanL.size());
-		return sanL;
-	}
+//	@ResponseBody
+//	public List<SanitaryVO>  sanitarySort(@RequestBody HashMap<String, String> sanitaryArr){	  
+//
+//		List<SanitaryVO> sanL = null;
+//		
+//		sanL = service.getSanitaryList(sanitaryArr);
+//		System.out.println(sanL.size());
+//		return sanL;
+//	}
 }
