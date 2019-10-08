@@ -10,6 +10,8 @@ import lab.spring.dao.DataDAO;
 import lab.spring.model.CommentVO;
 import lab.spring.model.KinderInfoVO;
 import lab.spring.model.SafetyVO;
+import lab.spring.model.SanitaryVO;
+import lab.spring.model.SearchVO;
 import lab.spring.model.UserVO;
 
 
@@ -17,9 +19,7 @@ import lab.spring.model.UserVO;
 @Service("MapService")
 public class MapSeviceImpl implements MapService{
 	
-//	public List<UserVO> findUser(String condition, String keyword) {
-//		return dao.findUser(condition, keyword);
-//	}
+
 
 	@Autowired
 	private DataDAO dao;
@@ -28,8 +28,8 @@ public class MapSeviceImpl implements MapService{
 		return dao.addComment(comment);
 	}
 
-	public List<CommentVO> findCommentList() {
-		return dao.findCommentList();
+	public List<CommentVO> findCommentList(String kdid) {
+		return dao.findCommentList(kdid);
 	}
 
 	public List<KinderInfoVO> findKinderList() {
@@ -52,6 +52,12 @@ public class MapSeviceImpl implements MapService{
 	public List<SafetyVO> getSafetyList(HashMap<String, String> safety_arr) {
 		// TODO Auto-generated method stub
 		return dao.getSafetyList(safety_arr);
+	}
+
+	@Override
+	public List<SanitaryVO> getSanitaryList(HashMap<String, String> sanitary_arr) {
+		// TODO Auto-generated method stub
+		return dao.getSanitaryList(sanitary_arr);
 	}
 	
 	

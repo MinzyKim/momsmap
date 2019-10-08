@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import lab.spring.dao.DataDAO;
@@ -25,46 +26,57 @@ import lab.spring.model.UserVO;
 import lab.spring.service.MapService;
 
 
-@Controller("./comment.do")
+@Controller
 public class CommentAction extends HttpServlet  {
 	
-	private static final long serialVersionUID = 1L;
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html; charset=utf-8");
-		response.sendRedirect("index");
+	@Autowired
+	MapService service;
+	
+	@RequestMapping(value="/commentList.do")
+	@ResponseBody
+	public String getCommentList(String kdid){
+		
+		StringBuffer result=new StringBuffer("");
+		
+		List<CommentVO> commentList = service.findCommentList(kdid);
+		
+		result.append("{\"result\":[");
+		for(int i = 0;i<commentList.size();i++) {
+			result.append("[{\"Contents\":\""+commentList.get(i).getContents()+"\"},");
+			result.append("{\"Writer\":\""+commentList.get(i).getWriter()+"\"},");
+			result.append("{\"Score\":\""+commentList.get(i).getScore()+"\"}]");
+			
+			if(i!=commentList.size()-1) {
+				result.append(",");
+			}
+		}
+		result.append("]}");
+		return result.toString();
+	}
+	
+	@RequestMapping(value="/addCommnet.do")
+	@ResponseBody
+	public void addComment(
+			HttpServletRequest request,
+			String contents,
+			String kdid
+			) {
+		HttpSession session = request.getSession();
+		UserVO vo = (UserVO)session.getAttribute("authInfo");
+		
+		CommentVO comment = new CommentVO();
+		comment.setKdid(kdid);
+		comment.setScore("3.0");
+		comment.setWriter(vo.getUserid());
+		comment.setContents(contents);
+		
+		service.addComment(comment);
 	}
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
+	
 
-		DataDAO dao = new DataDAO();
-		CommentVO form = null;
-//		String page = null;S
-//		page = request.getParameter("page");
-		form = new CommentVO();
-		String kdid = (request.getParameter("kdid"));
-		
-		form.setKdid(kdid);
-		form.setContents(request.getParameter("contents"));
-		form.setWriter(request.getParameter("writer"));
-		form.setScore(request.getParameter("score"));
-		
-		System.out.println(request.getParameter("kdid"));
-		System.out.println(request.getParameter("contents"));
-		System.out.println(request.getParameter("writer"));
-		System.out.println(request.getParameter("score"));
-		System.out.println("�� ������");
-		
-		if (dao.insertComment(form) > 0) {
-			response.sendRedirect("login.do");
-		}
-		
-		else {
-			response.sendRedirect("index.do");
-		}
-	}
+
+	
 
 }

@@ -24,12 +24,9 @@ public class CommentController {
 	
 	@RequestMapping(value = "/add.do", method=RequestMethod.POST)
 	public ModelAndView addComment (@ModelAttribute("comment") CommentVO vo,
-						BindingResult rs) {		
-		//BindingResult는 에러메세지를 담는 객체
+						BindingResult rs) {
 	ModelAndView mav = new ModelAndView();
-	mav.setViewName("index2");
-	
-
+	mav.setViewName("index");
 	return mav;
 	}
 }

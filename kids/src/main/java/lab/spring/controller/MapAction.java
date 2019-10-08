@@ -30,12 +30,11 @@ public class MapAction {
 	@RequestMapping(value="/index.do", method = RequestMethod.GET)
 	public ModelAndView sayHello() {
 		ModelAndView mav = new ModelAndView();
-		List<CommentVO> CommentList = null;
+		
 		List<KinderInfoVO> KinderList = null;
 		KinderList = service.findKinderList();
-		CommentList = service.findCommentList();
-		mav.addObject("kinders",KinderList);
-		mav.addObject("comments",CommentList);
+		
+		mav.addObject("kinders",KinderList);		
 		mav.setViewName("index");
 	
 		return mav;
@@ -43,13 +42,4 @@ public class MapAction {
 	}
 	
 
-	@RequestMapping(value="/search.do", method = RequestMethod.POST)
-	@ResponseBody
-	public List<SafetyVO>  findCategory(@RequestBody HashMap<String, String> safetyArr){	  
-
-		List<SafetyVO> s_list = null;
-		
-		s_list = service.getSafetyList(safetyArr);
-		return s_list;
-	}
 }
