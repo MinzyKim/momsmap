@@ -2,7 +2,18 @@ package lab.spring.model;
 
 public class SanitaryVO {
 	private String sanitaryid;
-	private String key;
+	private String kinderinfoId;
+	private String officeedu;
+	private String subofficeedu;
+	private String establish;
+	private String edate;
+	private String odate;
+	private String addr;
+	private String telno;
+	private String hpaddr;
+	private String opertime;
+	private String POINT_Y;
+	private String POINT_X;
 	private String ARQL_CHK_DT;
 	private String ARQL_CHK_RSLT_TP_CD;
 	private String FXTM_DSNF_TRGT_YN;
@@ -21,18 +32,83 @@ public class SanitaryVO {
 	private String ILMN_CHK_RSLT_CD;
 	private String kindername;
 	private String kinderinfoid;
-	
 	public String getSanitaryid() {
 		return sanitaryid;
 	}
 	public void setSanitaryid(String sanitaryid) {
 		this.sanitaryid = sanitaryid;
 	}
-	public String getKey() {
-		return key;
+	public String getKinderinfoId() {
+		return kinderinfoId;
 	}
-	public void setKey(String key) {
-		this.key = key;
+	public void setKinderinfoId(String kinderinfoId) {
+		this.kinderinfoId = kinderinfoId;
+	}
+	public String getOfficeedu() {
+		return officeedu;
+	}
+	public void setOfficeedu(String officeedu) {
+		this.officeedu = officeedu;
+	}
+	public String getSubofficeedu() {
+		return subofficeedu;
+	}
+	public void setSubofficeedu(String subofficeedu) {
+		this.subofficeedu = subofficeedu;
+	}
+	public String getEstablish() {
+		return establish;
+	}
+	public void setEstablish(String establish) {
+		this.establish = establish;
+	}
+	public String getEdate() {
+		return edate;
+	}
+	public void setEdate(String edate) {
+		this.edate = edate;
+	}
+	public String getOdate() {
+		return odate;
+	}
+	public void setOdate(String odate) {
+		this.odate = odate;
+	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+	public String getTelno() {
+		return telno;
+	}
+	public void setTelno(String telno) {
+		this.telno = telno;
+	}
+	public String getHpaddr() {
+		return hpaddr;
+	}
+	public void setHpaddr(String hpaddr) {
+		this.hpaddr = hpaddr;
+	}
+	public String getOpertime() {
+		return opertime;
+	}
+	public void setOpertime(String opertime) {
+		this.opertime = opertime;
+	}
+	public String getPOINT_Y() {
+		return POINT_Y;
+	}
+	public void setPOINT_Y(String pOINT_Y) {
+		POINT_Y = pOINT_Y;
+	}
+	public String getPOINT_X() {
+		return POINT_X;
+	}
+	public void setPOINT_X(String pOINT_X) {
+		POINT_X = pOINT_X;
 	}
 	public String getARQL_CHK_DT() {
 		return ARQL_CHK_DT;
@@ -144,7 +220,10 @@ public class SanitaryVO {
 	}
 	@Override
 	public String toString() {
-		return "SanitaryVO [sanitaryid=" + sanitaryid + ", key=" + key + ", ARQL_CHK_DT=" + ARQL_CHK_DT
+		return "SanitaryVO [sanitaryid=" + sanitaryid + ", kinderinfoId=" + kinderinfoId + ", officeedu=" + officeedu
+				+ ", subofficeedu=" + subofficeedu + ", establish=" + establish + ", edate=" + edate + ", odate="
+				+ odate + ", addr=" + addr + ", telno=" + telno + ", hpaddr=" + hpaddr + ", opertime=" + opertime
+				+ ", POINT_Y=" + POINT_Y + ", POINT_X=" + POINT_X + ", ARQL_CHK_DT=" + ARQL_CHK_DT
 				+ ", ARQL_CHK_RSLT_TP_CD=" + ARQL_CHK_RSLT_TP_CD + ", FXTM_DSNF_TRGT_YN=" + FXTM_DSNF_TRGT_YN
 				+ ", FXTM_DSNF_CHK_DT=" + FXTM_DSNF_CHK_DT + ", FXTM_DSNF_CHK_RSLT_TP_CD=" + FXTM_DSNF_CHK_RSLT_TP_CD
 				+ ", TP_01=" + TP_01 + ", TP_02=" + TP_02 + ", TP_03=" + TP_03 + ", TP_04=" + TP_04
@@ -153,4 +232,5 @@ public class SanitaryVO {
 				+ ", ILMN_CHK_DT=" + ILMN_CHK_DT + ", ILMN_CHK_RSLT_CD=" + ILMN_CHK_RSLT_CD + ", kindername="
 				+ kindername + ", kinderinfoid=" + kinderinfoid + "]";
 	}
+	
 }

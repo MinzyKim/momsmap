@@ -2,7 +2,7 @@
 momsmap/meal.json
 kids/.settings/
 .settings
-/META-INF/
+*/META-INF/*
 kids/pom.xml
 
 # Created by https://www.gitignore.io/api/java,macos,java-web

@@ -11,7 +11,6 @@ import lab.spring.model.CommentVO;
 import lab.spring.model.KinderInfoVO;
 import lab.spring.model.SafetyVO;
 import lab.spring.model.SanitaryVO;
-import lab.spring.model.SearchVO;
 import lab.spring.model.UserVO;
 
 
