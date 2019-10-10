@@ -40,8 +40,7 @@ public class LoginAction {
 	@RequestMapping(value = "/login.do",method=RequestMethod.POST)
 	public ModelAndView login(@RequestParam(value ="userid",required=false)String uid,
 								@RequestParam(value = "userpwd", required=false)String upwd,
-								HttpSession session,HttpServletRequest request
-					            , HttpServletResponse response
+								HttpSession session
 
 
 					            ) throws IOException {
@@ -63,9 +62,7 @@ public class LoginAction {
 				
 			mav.setViewName("index");
 		}else {
-			response.setContentType("text/html; charset=UTF-8");
-            PrintWriter out = response.getWriter();
-            out.println("<script>alert('회원가입창으로 이동합니다.');</script>");
+		
 			mav.setViewName("page-register");
 		}
 		return mav;

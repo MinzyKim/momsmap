@@ -8,10 +8,25 @@
 <html class="no-js" lang="ko">
 <head>
 <meta charset="utf-8">
+
+<head>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+            
+</head>              
+            
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>엄마의지도</title>
 <meta name="description" content="Sufee Admin - HTML5 Admin Template">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
 
 <link rel="apple-touch-icon" href="apple-icon.png">
 <link rel="shortcut icon" href="favicon.ico">
@@ -45,6 +60,13 @@
 
 
 <style>
+.radius_border{border:1px solid #919191;border-radius:5px;}      
+.custom_zoomcontrol {position:absolute;top:50px;right:10px;width:36px;height:80px;overflow:hidden;z-index:1;background-color:#f5f5f5;} 
+.custom_zoomcontrol span {display:block;width:36px;height:40px;text-align:center;cursor:pointer;}     
+.custom_zoomcontrol span img {width:15px;height:15px;padding:12px 0;border:none;}             
+.custom_zoomcontrol span:first-child{border-bottom:1px solid #bfbfbf;}         
+html, body {width:100%;height:100%;margin:0;padding:0;} 
+.map_wrap {position:relative;overflow:hidden;width:100%;height:100%;}
 .header{
    width:150%
    }
@@ -86,7 +108,8 @@
 
 <body>
 	<!-- Left Panel -->
-
+    
+    
 	<aside id="left-panel" class="left-panel">
 		<nav class="navbar navbar-expand-sm navbar-default">
 			<div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -295,23 +318,46 @@ function selectVal(n){
 
 	<div id="right-panel" class="right-panel">
 		<!--   왼쪽 메뉴 접는 버튼   -->
-      <header id="header" class="header">
+      <header id="header" class="header" style="padding-bottom: 30px;">
          <div  id="col-sm-7" class="col-sm-7" width="10%">
             <a id="menuToggle" class="menutoggle pull-left"><i
                class="fa fa fa-tasks"></i></a>
          </div>
-            <div id = "LOL" align ="right"  style ="width: 85%; font-family:hanna; word-spacing:13px;">
+            <div id = "LOL" align ="right"  style ="width: 85%;font-family:hanna;word-spacing:13px;margin-left: 150px;" >
                
                <c:if test="${authInfo.userid eq null}">
-               <form action="login.do" method ="post">
-                     <label class="legend">아이디</label>
-                     <input name ="userid" type="text">
-                     <label class="legend">패스워드</label>
-                     <input name ="userpwd" type="password">
-                       <input type="submit" id="login" value="로그인" />
+               <form action="login.do" method ="post" style="height: 25px;width: 600px;">
+<!--                      <label class="legend">아이디</label> -->
+<!--                      <input name ="userid" type="text"> -->
                      
-				</form>
+                     
+					
+<!-- 					    <form class="col s12"> -->
+					      <div class="row">
+					        <div class="input-field col s6">
+					          <i class="material-icons prefix">account_circle</i>
+					          <input id="icon_prefix" type="text" class="validate" name="userid">
+					          <label for="icon_prefix">아이디</label>
+					        </div>
+					        <div class="input-field col s6">
+					          <i class="material-icons prefix">lock_outline</i>
+					          <input id="icon_telephone" type="password" class="validate" name="userpwd" >
+					          <label for="icon_telephone">패스워드</label>
+					        </div>
+			
+<!-- 					    </form> -->
+					  
+<!--                      <label class="legend">패스워드</label> -->
+<!--                      <input name ="userpwd" type="password"> -->
+
+<!--                        <input type="submit" id="login" value="로그인" /> -->
+           
+    						<button class="btn waves-effect waves-light"  type="submit"  id="login" name="action" >로그인
+    						
+    						</button>
 				<a href="./page-register.do" class="btn btn-primary">회원가입</a>
+				</div>
+				</form>
 				</c:if>
 				
 				<c:if test="${authInfo.userid ne null}">
@@ -322,29 +368,78 @@ function selectVal(n){
 					<input type="submit" id="logout" value="로그아웃" />
 					</form>
 				</c:if>
-				<a href="#" onclick="hideMarkers();">숨기기</a>
+<!-- 				<a href="#" onclick="hideMarkers();">숨기기</a> -->
 			</div>
+			
+			
+			
+			
       </header>
 
 
-		<div class="content mt-3">
-			<div id="map" style="width: 110%; height: 700px;"></div>
-			<p>
-				<em>지도를 클릭해주세요!</em>
-			</p>
-			<div id="clickLatlng"></div>
-			<script type="text/javascript"
+		<div class="map_wrap">
+		  <div id="map" style="width: 100%; height: 700px;position:relative;overflow:hidden;">
+		  </div>
+		 	 <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
+    		<div class="custom_zoomcontrol radius_border"> 
+       			 <span onclick="zoomIn()">
+       			 <img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>  
+        		<span onclick="zoomOut()"><img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
+    		</div>
+    		
+    		
+    		  <footer class="page-footer yellow" >
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="black-text" style="font-family: 'Hanna'";>엄마의 지도</h5>
+                <p class="black-text text-lighten-4" style="font-family: 'Hanna'">유치원 선택에 도움을 주는 웹페이지입니다.</p>
+              </div>
+              <div class="col l4 offset-l2 s12" style="font-family: 'Hanna'";>
+                <h5 class="black-text">만든이</h5>
+                <ul>
+                  <li><a class="black-text text-lighten-3" href="#!">김민지</a></li>
+                  <li><a class="black-text text-lighten-3" href="#!">김현민</a></li>
+                  <li><a class="black-text text-lighten-3" href="#!">이원호</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2019 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+    		<script type="text/javascript"
 				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=048d3839f2032025c0d6225330618498"></script>
+</div>
 
 <script>			
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 
 mapOption = { 
-    center: new kakao.maps.LatLng(37.53403829266374, 126.98904795128267), // 지도의 중심좌표
-    level: 8 // 지도의 확대 레벨
+    center: new kakao.maps.LatLng(37.510531, 127.020876), // 지도의 중심좌표
+    level:5 // 지도의 확대 레벨
 };
 
+
+
+
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+
+//지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+function zoomIn() {
+    map.setLevel(map.getLevel() - 1);
+}
+
+// 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+function zoomOut() {
+    map.setLevel(map.getLevel() + 1);
+}
+
 
 var markerImageUrl = 'resources/images/사립(법인).png', 
 markerImageUrl2 = 'resources/images/사립(사인).png',
@@ -399,7 +494,7 @@ var marker3;
 // 	}
 // }
 
-function infoFunction(n){//정보보기
+function infoFunction(n){		//상세정보보기
 	var C1 = document.getElementById("clean")
 	C1.innerHTML=
 	'<table border=0 cellpadding=0 cellspacing=0>'+
@@ -557,50 +652,46 @@ var positions = [
     {
         content:'<div style="padding:5px; width : 360px; height : 380px;">' +
         '<table border=0 cellpadding=0 cellspacing=0>'+'<tr>'+'<td>'+
-        '<img src="resources/images/navi350.png" alt="" usemap="#Map1"/> '+
-		'<map name="Map1">' +
-		'<area shape = "rect" coords = "7,10,110,40" onclick="infoFunction(' + count+ ');" border = "0" />' +
-		'<area alt = "카페" onclick="reviewFunction(' + count+ ');" shape = "rect" border = "0" coords="125,10,230,40" />' +//리뷰보기
-		'<area alt = "블로그" onclick="scoreFunction(' + count+ ');" shape = "rect" border = "0" coords="245,10,342,40" />' +//정보보기
-		'</map>'+  
+//         '<img src="resources/images/navi350.png" alt="" usemap="#Map1"/> '+
+// // 		'<map name="Map1">' +
+// // 		'<area shape = "rect" coords = "7,10,110,40" onclick="infoFunction(' + count+ ');" border = "0" />' +
+// // 		'<area alt = "카페" onclick="reviewFunction(' + count+ ');" shape = "rect" border = "0" coords="125,10,230,40" />' +//리뷰보기
+// // 		'<area alt = "블로그" onclick="scoreFunction(' + count+ ');" shape = "rect" border = "0" coords="245,10,342,40" />' +//정보보기
+// // 		'</map>'+  
 		'<div id = "clean">'+
-		'<table border=0 cellpadding=0 cellspacing=0>'+
-        '<tr>'+
-        '<td align=center bgcolor="E6ECDE" height="35">유치원명</td>'+
-        '<td align=center bgcolor="ffffff" >'+'${kinder.kindername}'+'</td>'+
-        '</tr>'+ 
-        '<tr>'+	
-        '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">교육청명</td>'+
-        '<td width=240 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+'${kinder.officeedu}'+'</td>'+
-        '</tr>'+
-        '<tr>'+
-        '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">교육지원청명</td>'+
-        '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+'${kinder.subofficeedu}'+'</td>'+
-        '</tr>'+
-        '<tr>'+
-        '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">설립일</td>'+
-        '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+'${kinder.edate}'+'</td>'+
-        '</tr>'+
-        '<tr>'+
-        '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">개원일</td>'+
-        '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+'${kinder.odate}'+'</td>'+
-        '</tr>'+
-        '<tr>'+
-        '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">주소</td>'+
-        '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+'${kinder.addr}'+'</td>'+
-        '</tr>'+
-        '<tr>'+
-        '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">전화번호</td>'+
-        '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+'${kinder.telno}'+'</td>'+
-        '</tr>'+
-        '<tr>'+
-        '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">홈페이지</td>'+
-        '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+'<a href='+'${kinder.hpaddr}>'+'${kinder.hpaddr}'+'</a>'+'</td>'+
-        '</tr>'+
-        '<tr>'+
-        '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">운영시간</td>'+
-        '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+'${kinder.opertime}'+'</td>'+
-        '</tr>'+
+// 		'<table border=0 cellpadding=0 cellspacing=0>'+
+       
+//         '<td align=center bgcolor="E6ECDE" height="35"></td>'+
+        '<h4>'+'${kinder.kindername}'+'</h4>'+'<br/>'+
+        '<ul>'+ 
+//         '<tr>'+	
+//         '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">교육청명</td>'+
+//         '<td width=240 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+'${kinder.officeedu}'+'</td>'+
+//         '</tr>'+
+//         '<tr>'+
+//         '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">교육지원청명</td>'+
+//         '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+'${kinder.subofficeedu}'+'</td>'+
+//         '</tr>'+
+//         '<tr>'+
+//         '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">설립일</td>'+
+//         '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+'${kinder.edate}'+'</td>'+
+//         '</tr>'+
+//         '<tr>'+
+//         '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">개원일</td>'+
+//         '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+'${kinder.odate}'+'</td>'+
+//         '</tr>'+
+//         '<tr>'+
+//         '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">주소</td>'+
+//         '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+'${kinder.addr}'+'</td>'+
+//         '</tr>'+
+        '<li>'+'${kinder.telno}'+'</li>'+
+        
+        '<li>'+'<a href='+'${kinder.hpaddr}>'+'${kinder.hpaddr}'+'</a>'+
+        '</ul>'+
+//         '<tr>'+
+//         '<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">운영시간</td>'+
+//         '<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">'+'${kinder.opertime}'+'</td>'+
+//         '</tr>'+
          ' </table>'+
          '</div>' +
         '</div>', 
@@ -628,6 +719,8 @@ markerList.push(marker3);
   });
   
   kakao.maps.event.addListener(marker3, 'click', makeOverListener(map, marker3, infowindow)); 
+
+  
 
 
 //인포윈도우를 표시하는 클로저를 만드는 함수입니다 

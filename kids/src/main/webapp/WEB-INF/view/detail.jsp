@@ -23,46 +23,46 @@
 	  	<table border="0" cellpadding="0" cellspacing="1" width="350" hegiht="500" bgcolor="BBBBBB">
 		  	<tr>
 				<td align=center bgcolor="E6ECDE" height="35">유치원명</td>
-				<td align=center bgcolor="ffffff" >ㅁㄴㅇㅁㄴㅇ</td>
+<!-- 				<td align=center bgcolor="ffffff" >ㅁㄴㅇㅁㄴㅇ</td> -->
 		  	</tr>
 		  	
 		  	<!-- 사용자 리스트를 클라이언트에게 보여주기 위하여 출력. -->
 		  	
 
-		<tr>
-			<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">
-			교육청명</td>
-			<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">
-			456</td>
- 		</tr>
+<!-- 		<tr> -->
+<!-- 			<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35"> -->
+<!-- 			교육청명</td> -->
+<!-- 			<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10"> -->
+<!-- 			456</td> -->
+<!--  		</tr> -->
  		
- 		<tr>
-			<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">
-			교육지원청명</td>
-			<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">
-			456</td>
- 		</tr>
+<!--  		<tr> -->
+<!-- 			<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35"> -->
+<!-- 			교육지원청명</td> -->
+<!-- 			<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10"> -->
+<!-- 			456</td> -->
+<!--  		</tr> -->
  		
- 		<tr>
-			<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">
-			설립일</td>
-			<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">
-			456</td>
- 		</tr>
+<!--  		<tr> -->
+<!-- 			<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35"> -->
+<!-- 			설립일</td> -->
+<!-- 			<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10"> -->
+<!-- 			456</td> -->
+<!--  		</tr> -->
  		
- 		<tr>
-			<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">
-			개원일</td>
-			<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">
-			456</td>
- 		</tr>
+<!--  		<tr> -->
+<!-- 			<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35"> -->
+<!-- 			개원일</td> -->
+<!-- 			<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10"> -->
+<!-- 			456</td> -->
+<!--  		</tr> -->
  		
- 		<tr>
-			<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">
-			주소</td>
-			<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10">
-			456</td>
- 		</tr>
+<!--  		<tr> -->
+<!-- 			<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35"> -->
+<!-- 			주소</td> -->
+<!-- 			<td width=100 hegiht=500 align=center bgcolor= "ffffff" style="padding-left:10"> -->
+<!-- 			456</td> -->
+<!--  		</tr> -->
  		
  		<tr>
 			<td width=100 hegiht=500 align=center bgcolor= "E6ECDE" height ="35">

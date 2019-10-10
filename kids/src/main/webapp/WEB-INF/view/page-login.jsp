@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<META http-equiv="Expires" content="-1">
+<META http-equiv="Pragma" content="no-cache">
+<META http-equiv="Cache-Control" content="No-Cache">
+
+   
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,6 +41,7 @@
 function moveJoin(){
 	document.form1.submit();
 }
+
 </script>
 <body>
     <div class="limiter">
@@ -44,14 +52,14 @@ function moveJoin(){
 
 <h4>로그인</h4>
 </span>
-<form method='post' action='./login.do'>
+<form method='post' action='./login.do' >
 <div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
-    <input class="input100" type="text" id="userid" name="userid" placeholder="Userid">
+    <input class="input100" type="text" id="userid" name="userid"  placeholder="Userid"> 
     <span class="focus-input100"></span>
 </div>
 <br>
 <div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-    <input class="input100" type="password" id="userpwd" name="userpwd" placeholder="Password">
+    <input class="input100" type="password" id="userpwd" name="userpwd" placeholder="Password"> 
     <span class="focus-input100"></span>
 </div>
     <div class="container-login100-form-btn m-t-17">
